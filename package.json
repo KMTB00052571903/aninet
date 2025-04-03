@@ -1,0 +1,23 @@
+{
+  "name": "aninet",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/KMTB00052571903/aninet.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/KMTB00052571903/aninet/issues"
+  },
+  "homepage": "https://github.com/KMTB00052571903/aninet#readme",
+  "dependencies": {
+    "modules": "^0.4.0"
+  }
+}
