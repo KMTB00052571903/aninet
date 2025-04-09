@@ -48,6 +48,50 @@ class PostList extends HTMLElement {
             max-height: 400px;
             object-fit: contain;
           }
+          .post-actions {
+            border-radius: 25px;
+          }
+          .post-image {
+            width: 100%;
+            border-radius: 20px;
+            margin: 20px 0;
+            display: block;
+            max-height: 500px;
+            object-fit: cover;
+          }
+          .post-actions {
+            display: flex;
+            justify-content: space-around;
+            margin-top: 15px;
+            padding-top: 15px;
+            border-radius: 5px solidrgb(159, 70, 70);
+          }
+          .action-btn {
+            background: none;
+            border: none;
+            color:rgb(255, 255, 255);
+            display: flex;
+            align-items: center;
+            gap: 6px;
+            cursor: pointer;
+            font-size: 14px;
+            font-weight: 500;
+            padding: 6px 12px;
+            border-radius: 20px;
+            transition: all 0.2s ease;
+          }
+          .action-btn:hover {
+            background: rgba(255, 8, 8, 0.1);
+            color: #FF0808;
+          }
+          
+          .action-btn.liked {
+            color: #FF0808;
+          }
+          
+          .action-btn .icon {
+            font-size: 20px;
+          }
         </style>
         ${posts.map(post => `
           <div class="post">
@@ -61,7 +105,21 @@ class PostList extends HTMLElement {
             <div>${post.title}</div>
             ${post.image ? `<img class="post-image" src="${post.image}" alt="${post.title}">` : ''}
             <div style="color: #FF0808; margin-top: 10px;">${post.tag}</div>
+            <div class="post-actions">
+            <button class="action-btn ${post.liked ? 'liked' : ''}">
+              ❤️ Like
+            </button>
+            <button class="action-btn">
+              ⬇ Download
+            </button>
+            <button class="action-btn">
+              💬 Comment
+            </button>
           </div>
+        </div>
+          </div>
+    
+          
         `).join('')}
       `;
     }
