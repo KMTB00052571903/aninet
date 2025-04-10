@@ -1,4 +1,5 @@
-class SignupForm extends HTMLElement {
+
+export default class SignupForm extends HTMLElement {
     connectedCallback() {
       this.render();
       this.querySelector("form").addEventListener("submit", this.handleSubmit);
@@ -12,12 +13,17 @@ class SignupForm extends HTMLElement {
       const password = form.password.value;
       const confirmPassword = form.confirmPassword.value;
   
-      if (password !== confirmPassword) {
-        alert("Las contraseñas no coinciden");
+      if (!username || !email || !password || !confirmPassword) {
+        alert("Todos los campos son obligatorios.");
         return;
       }
   
-     
+      if (password !== confirmPassword) {
+        alert("Las contraseñas no coinciden.");
+        return;
+      }
+  
+      // Aquí podrías guardar el usuario en el estado global simulado
       console.log("Usuario registrado:", { username, email });
   
       alert("¡Registro exitoso!");
@@ -63,6 +69,4 @@ class SignupForm extends HTMLElement {
       `;
     }
   }
-  
-  customElements.define('signup-form', SignupForm);
   
