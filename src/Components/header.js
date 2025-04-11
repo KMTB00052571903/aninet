@@ -18,7 +18,7 @@ class HeaderComponent extends HTMLElement {
                 padding: 20px;
                 padding-left: 150px;
                 padding-right: 150px;
-                margin-left: -40px;
+               position: sticky;
                 background: linear-gradient(#111111, transparent)
                 
                 
