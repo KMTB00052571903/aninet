@@ -6,26 +6,13 @@ class HeaderComponent extends HTMLElement {
 
   connectedCallback() {
     this.render();
-    this.setupEventListeners();
-  }
-
-  setupEventListeners() {
-    // Listener para el botón de login
-    this.shadowRoot.querySelector("#login-btn")?.addEventListener("click", () => {
-      this.openLoginForm();
-    });
-
-    // Listener para el texto de Profile
+    // Listener solo para Profile
     this.shadowRoot.querySelector("#profile")?.addEventListener("click", () => {
-      this.openLoginForm();
+      if (!document.querySelector("login-form")) {
+        const loginForm = document.createElement("login-form");
+        document.body.appendChild(loginForm);
+      }
     });
-  }
-
-  openLoginForm() {
-    if (!document.querySelector("login-form")) {
-      const loginForm = document.createElement("login-form");
-      document.body.appendChild(loginForm);
-    }
   }
 
   render() {
@@ -61,10 +48,10 @@ class HeaderComponent extends HTMLElement {
         p {
           font-size: 24px;
           color: white;
-          cursor: pointer; /* Agregamos cursor pointer para indicar que es clickeable */
+          cursor: pointer;
         }
         p:hover {
-          color: #FF0808; /* Cambio de color al hover para feedback visual */
+          color: #FF0808;
         }
         input {
           font-size: 24px;
@@ -79,19 +66,6 @@ class HeaderComponent extends HTMLElement {
           color: #A4A4A4;
           padding: 8px;
         }
-        button {
-          background-color: #FF0808;
-          color: white;
-          font-size: 18px;
-          padding: 8px 16px;
-          border: none;
-          border-radius: 8px;
-          cursor: pointer;
-          transition: background-color 0.3s ease;
-        }
-        button:hover {
-          background-color: #cc0606;
-        }
       </style>
 
       <header id="header">
@@ -104,7 +78,6 @@ class HeaderComponent extends HTMLElement {
             <p id="watch">Watch</p>
             <p id="category">Category</p>
             <p id="profile">Profile</p>
-            <button id="login-btn">Iniciar sesión</button>
           </links>
           <searchbar>
             <input type="text" id="searchbar" placeholder="Search in site">
