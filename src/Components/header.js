@@ -1,101 +1,118 @@
 class HeaderComponent extends HTMLElement {
-    constructor() {
-      super();
-      this.attachShadow({ mode: "open" });
-    }
-  
-    connectedCallback() {
-      this.render();
-      this.shadowRoot.querySelector("#login-btn")?.addEventListener("click", () => {
-        if (!document.querySelector("login-form")) {
-          const loginForm = document.createElement("login-form");
-          document.body.appendChild(loginForm);
-        }
-      });
-    }
-  
-    render() {
-      this.shadowRoot.innerHTML = `
-        <style>
-          #header {
-            width: 100%;
-            display: flex;
-            flex-direction: row;
-            align-items: center;
-            justify-content: space-evenly;
-            padding: 20px;
-            padding-left: 150px;
-            padding-right: 150px;
-            margin-left: -40px;
-            background: linear-gradient(#111111, transparent)
-          }
-          img {
-            width: 335px;
-          }
-          #navbar {
-            display: flex;
-            align-items: center;
-            justify-content: space-around;
-            width: 810px;
-            gap: 48px;
-          }
-          links {
-            display: flex;
-            justify-content: space-evenly;
-            gap: 40px;
-          }
-          p {
-            font-size: 24px;
-            color: white;
-          }
-          input {
-            font-size: 24px;
-            color: white;
-            border: 2px solid #FF0808;
-            border-radius: 40px;
-            padding: 8px;
-            background-color: transparent;
-          }
-          input::placeholder {
-            font-size: 24px;
-            color: #A4A4A4;
-            padding: 8px;
-          }
-          button {
-            background-color: #FF0808;
-            color: white;
-            font-size: 18px;
-            padding: 8px 16px;
-            border: none;
-            border-radius: 8px;
-            cursor: pointer;
-            transition: background-color 0.3s ease;
-          }
-          button:hover {
-            background-color: #cc0606;
-          }
-        </style>
-  
-        <header id="header">
-          <logo id="logo">
-            <img src="https://i.ibb.co/PG67j7TQ/logo-medium-white.png" alt="Aninet">
-          </logo>
-          <navbar id="navbar">
-            <links>
-              <p id="home">Home</p>
-              <p id="watch">Watch</p>
-              <p id="category">Category</p>
-              <p id="profile">Profile</p>
-              <button id="login-btn">Iniciar sesión</button>
-            </links>
-            <searchbar>
-              <input type="text" id="searchbar" placeholder="Search in site">
-            </searchbar>
-          </navbar>
-        </header>
-      `;
+  constructor() {
+    super();
+    this.attachShadow({ mode: "open" });
+  }
+
+  connectedCallback() {
+    this.render();
+    this.setupEventListeners();
+  }
+
+  setupEventListeners() {
+    // Listener para el botón de login
+    this.shadowRoot.querySelector("#login-btn")?.addEventListener("click", () => {
+      this.openLoginForm();
+    });
+
+    // Listener para el texto de Profile
+    this.shadowRoot.querySelector("#profile")?.addEventListener("click", () => {
+      this.openLoginForm();
+    });
+  }
+
+  openLoginForm() {
+    if (!document.querySelector("login-form")) {
+      const loginForm = document.createElement("login-form");
+      document.body.appendChild(loginForm);
     }
   }
-  
-  export default HeaderComponent;
-  
+
+  render() {
+    this.shadowRoot.innerHTML = `
+      <style>
+        #header {
+          width: 100%;
+          display: flex;
+          flex-direction: row;
+          align-items: center;
+          justify-content: space-evenly;
+          padding: 20px;
+          padding-left: 150px;
+          padding-right: 150px;
+          margin-left: -40px;
+          background: linear-gradient(#111111, transparent)
+        }
+        img {
+          width: 335px;
+        }
+        #navbar {
+          display: flex;
+          align-items: center;
+          justify-content: space-around;
+          width: 810px;
+          gap: 48px;
+        }
+        links {
+          display: flex;
+          justify-content: space-evenly;
+          gap: 40px;
+        }
+        p {
+          font-size: 24px;
+          color: white;
+          cursor: pointer; /* Agregamos cursor pointer para indicar que es clickeable */
+        }
+        p:hover {
+          color: #FF0808; /* Cambio de color al hover para feedback visual */
+        }
+        input {
+          font-size: 24px;
+          color: white;
+          border: 2px solid #FF0808;
+          border-radius: 40px;
+          padding: 8px;
+          background-color: transparent;
+        }
+        input::placeholder {
+          font-size: 24px;
+          color: #A4A4A4;
+          padding: 8px;
+        }
+        button {
+          background-color: #FF0808;
+          color: white;
+          font-size: 18px;
+          padding: 8px 16px;
+          border: none;
+          border-radius: 8px;
+          cursor: pointer;
+          transition: background-color 0.3s ease;
+        }
+        button:hover {
+          background-color: #cc0606;
+        }
+      </style>
+
+      <header id="header">
+        <logo id="logo">
+          <img src="https://i.ibb.co/PG67j7TQ/logo-medium-white.png" alt="Aninet">
+        </logo>
+        <navbar id="navbar">
+          <links>
+            <p id="home">Home</p>
+            <p id="watch">Watch</p>
+            <p id="category">Category</p>
+            <p id="profile">Profile</p>
+            <button id="login-btn">Iniciar sesión</button>
+          </links>
+          <searchbar>
+            <input type="text" id="searchbar" placeholder="Search in site">
+          </searchbar>
+        </navbar>
+      </header>
+    `;
+  }
+}
+
+export default HeaderComponent;
