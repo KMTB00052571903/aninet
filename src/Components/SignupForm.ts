@@ -2,10 +2,10 @@
 export default class SignupForm extends HTMLElement {
     connectedCallback() {
       this.render();
-      this.querySelector("form").addEventListener("submit", this.handleSubmit);
+      this.querySelector("form")!.addEventListener("submit", this.handleSubmit);
     }
   
-    handleSubmit(event) {
+    handleSubmit(event:any) {
       event.preventDefault();
       const form = event.target;
       const username = form.username.value.trim();

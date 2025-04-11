@@ -9,7 +9,7 @@ class FooterComponent extends HTMLElement {
     }
 
     render() {
-        this.shadowRoot.innerHTML = `
+        this.shadowRoot!.innerHTML = `
             <style>
                 :host {
                     display: block;

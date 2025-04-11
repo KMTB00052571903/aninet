@@ -1,13 +1,13 @@
 export default class LoginForm extends HTMLElement {
     connectedCallback() {
       this.render();
-      this.querySelector("form").addEventListener("submit", this.handleSubmit);
+      this.querySelector("form")!.addEventListener("submit", this.handleSubmit);
       this.querySelector("#close-btn")?.addEventListener("click", () => {
         this.remove(); // o this.style.display = 'none';
       });
     }
   
-    handleSubmit(event) {
+    handleSubmit(event:any) {
       event.preventDefault();
       const form = event.target;
       const email = form.email.value.trim();

@@ -6,7 +6,7 @@ class HeaderComponent extends HTMLElement {
   
     connectedCallback() {
       this.render();
-      this.shadowRoot.querySelector("#login-btn")?.addEventListener("click", () => {
+      this.shadowRoot!.querySelector("#login-btn")?.addEventListener("click", () => {
         if (!document.querySelector("login-form")) {
           const loginForm = document.createElement("login-form");
           document.body.appendChild(loginForm);
@@ -15,7 +15,7 @@ class HeaderComponent extends HTMLElement {
     }
   
     render() {
-      this.shadowRoot.innerHTML = `
+      this.shadowRoot!.innerHTML = `
         <style>
           #header {
             width: 100%;
@@ -61,19 +61,7 @@ class HeaderComponent extends HTMLElement {
             color: #A4A4A4;
             padding: 8px;
           }
-          button {
-            background-color: #FF0808;
-            color: white;
-            font-size: 18px;
-            padding: 8px 16px;
-            border: none;
-            border-radius: 8px;
-            cursor: pointer;
-            transition: background-color 0.3s ease;
-          }
-          button:hover {
-            background-color: #cc0606;
-          }
+
         </style>
   
         <header id="header">
@@ -86,7 +74,6 @@ class HeaderComponent extends HTMLElement {
               <p id="watch">Watch</p>
               <p id="category">Category</p>
               <p id="profile">Profile</p>
-              <button id="login-btn">Iniciar sesión</button>
             </links>
             <searchbar>
               <input type="text" id="searchbar" placeholder="Search in site">

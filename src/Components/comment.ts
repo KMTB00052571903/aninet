@@ -18,14 +18,14 @@ class CommentBoxComponent extends HTMLElement {
         }
       }
 
-      render(comments) {
-        this.shadowRoot.innerHTML = `
+      render(comments:any) {
+        this.shadowRoot!.innerHTML = `
         <style>
         
         
         </style>
 
-        ${comments.map(com =>`
+        ${comments.map((com:any) =>`
             <div class="commentBox">
                 <div class="commentBox-header">
                 
