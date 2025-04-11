@@ -12,7 +12,7 @@ export default class UploadPost extends HTMLElement {
       this.querySelector('form').addEventListener('submit', (e) => {
         e.preventDefault();
         const content = this.querySelector('#post-content').value;
-        // Aquí iría la lógica para subir el post
+        
         alert(`Post created: ${content}`);
         this.remove();
       });
