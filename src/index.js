@@ -1,6 +1,10 @@
-import HeaderComponent from './Components/header.js';
-import FooterComponent from './Components/footer.js';
-import PostList from './Components/postList.js';
+
+
+
+import HeaderComponent from './Components/Header.js';
+import FooterComponent from './Components/Footer.js';
+import PostList from './Components/postlist.js';
+
 
 customElements.define('header-component', HeaderComponent);
 customElements.define('footer-component', FooterComponent);
