@@ -16,10 +16,9 @@ class HeaderComponent extends HTMLElement {
                 align-items: center;
                 justify-content: space-evenly;
                 padding: 20px;
-                padding-left: 150px;
-                padding-right: 150px;
                position: sticky;
                 background: linear-gradient(#111111, transparent)
+                
                 
                 
                  
@@ -45,8 +44,10 @@ class HeaderComponent extends HTMLElement {
                 gap: 40px;
                 
             }
-            p{
+            p{  
+                font-family: roboto;
                 font-size: 24px;
+                font-weight: regular;
                 color: white;
             }
 
@@ -55,9 +56,9 @@ class HeaderComponent extends HTMLElement {
                 color: white;
                 border: 2px solid #FF0808;
                 border-radius: 40px;
-                padding: 8px;
-                background-color: transparent;
                 
+                background-color: transparent;
+                padding: 8px;
             }
             
             input::placeholder{
@@ -67,7 +68,7 @@ class HeaderComponent extends HTMLElement {
                 padding: 8px;
 
             }
-
+            
        
         </style>
         <header id="header">
@@ -82,7 +83,10 @@ class HeaderComponent extends HTMLElement {
                     <p id="profile">Profile</p>
                 </links>
                 <searchbar>
-                <input type="text" id="searchbar" placeholder="Search in site               &#128269;">
+                <input type="text" id="searchbar" placeholder="Search in site                🔍" >
+                
+                  
+                
                 </searchbar>
             </navbar>
             
