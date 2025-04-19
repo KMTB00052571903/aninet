@@ -20,8 +20,8 @@ class PostList extends HTMLElement {
     }
     
     
-    render(posts) {
-      this.shadowRoot.innerHTML = `
+    render(posts:any) {
+      this.shadowRoot!.innerHTML = `
 
         <style>
           .post {
@@ -136,7 +136,7 @@ class PostList extends HTMLElement {
 
           
         </style>
-        ${posts.map(post => `
+        ${posts.map((post:any) => `
           <div class="post">
             <div class="post-header">
               <img class="user-icon" src="${post.icon}" alt="${post.name}">
@@ -187,7 +187,7 @@ class PostList extends HTMLElement {
       
     
       
-    const likeButtons = this.shadowRoot.querySelectorAll('.action-btn');
+    const likeButtons = this.shadowRoot!.querySelectorAll('.action-btn');
 
     likeButtons.forEach(button => {
     button.addEventListener('click', () => {
