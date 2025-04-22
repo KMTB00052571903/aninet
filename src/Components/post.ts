@@ -16,7 +16,7 @@ class PostCreator extends HTMLElement {
         <style>
           :host {
             display: block;
-            background-color: #3E3E3E;
+            background-color: #111111;
             border-radius: 16px;
             padding: 20px;
             margin-bottom: 20px;
