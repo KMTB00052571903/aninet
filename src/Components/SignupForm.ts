@@ -1,4 +1,3 @@
-
 export default class SignupForm extends HTMLElement {
     connectedCallback() {
       this.render();
@@ -23,7 +22,6 @@ export default class SignupForm extends HTMLElement {
         return;
       }
   
-      // Aquí podrías guardar el usuario en el estado global simulado
       console.log("Usuario registrado:", { username, email });
   
       alert("¡Registro exitoso!");

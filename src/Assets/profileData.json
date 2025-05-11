@@ -1,0 +1,94 @@
+{
+    "profiles": [
+        {
+            "id": "1",
+            "username": "Joana",
+            "handle": "@joana",
+            "email": "joana@example.com",
+            "joinDate": "Enero 2023",
+            "bio": "Hey there I'm a huge fan of Chainsaw Man both the manga and the anime. I fell in love with the series for its insane action, dark humor, and emotional rollercoasters.",
+            "avatar": "https://i.pravatar.cc/150?img=5",
+            "stats": {
+                "posts": 42,
+                "followers": 1250,
+                "following": 89
+            },
+            "posts": [
+                {
+                    "title": "Sharing a FanArt",
+                    "content": "Just finished this fanart of Power! What do you think? #ChainsawMan #FanArt",
+                    "date": "2 days ago",
+                    "likes": 124,
+                    "comments": 23
+                },
+                {
+                    "title": "WTF is going on?!",
+                    "content": "Chapter 195 just blew my mind! No spoilers but... WOW! #ChainsawMan #Manga",
+                    "date": "1 week ago",
+                    "likes": 356,
+                    "comments": 87
+                }
+            ]
+        },
+        {
+            "id": "2",
+            "username": "Alex",
+            "handle": "@alex_csm",
+            "email": "alex@example.com",
+            "joinDate": "Marzo 2022",
+            "bio": "CSM theorist and manga collector. Always up for discussing the latest chapters!",
+            "avatar": "https://i.pravatar.cc/150?img=11",
+            "stats": {
+                "posts": 87,
+                "followers": 3200,
+                "following": 150
+            },
+            "posts": [
+                {
+                    "title": "Theory about Pochita",
+                    "content": "I think Pochita's true form hasn't been fully revealed yet. Here's why...",
+                    "date": "3 days ago",
+                    "likes": 542,
+                    "comments": 132
+                },
+                {
+                    "title": "My CSM collection",
+                    "content": "Finally completed my Chainsaw Man manga collection with all volumes!",
+                    "date": "2 weeks ago",
+                    "likes": 876,
+                    "comments": 45
+                }
+            ]
+        },
+        {
+            "id": "3",
+            "username": "MakimaFan",
+            "handle": "@makima_devil",
+            "email": "makima@example.com",
+            "joinDate": "Noviembre 2021",
+            "bio": "Love Makima despite everything. Complex characters are the best!",
+            "avatar": "https://i.pravatar.cc/150?img=8",
+            "stats": {
+                "posts": 156,
+                "followers": 8900,
+                "following": 210
+            },
+            "posts": [
+                {
+                    "title": "Makima analysis",
+                    "content": "Breaking down Makima's motivations and psychology in Part 1. So fascinating!",
+                    "date": "1 day ago",
+                    "likes": 1200,
+                    "comments": 245
+                },
+                {
+                    "title": "Cosplay WIP",
+                    "content": "Working on my Makima cosplay for the next con. Here's a preview!",
+                    "date": "5 days ago",
+                    "likes": 2300,
+                    "comments": 187
+                }
+            ]
+        }
+    ]
+}

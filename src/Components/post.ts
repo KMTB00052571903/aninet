@@ -16,7 +16,7 @@ class PostCreator extends HTMLElement {
         <style>
           :host {
             display: block;
-            background-color: #3E3E3E;
+            background-color:rgb(20, 20, 20);
             border-radius: 16px;
             padding: 20px;
             margin-bottom: 20px;
@@ -51,7 +51,7 @@ class PostCreator extends HTMLElement {
             margin: 10px;
             border: 2px solid #555;
             border-radius: 12px;
-            background-color: #2E2E2E;
+            background-color:rgb(23, 23, 23);
             color: white;
             font-family: inherit;
             font-size: 16px;
@@ -62,7 +62,7 @@ class PostCreator extends HTMLElement {
           }
           
           .post-input::placeholder {
-            color: #A4A4A4;
+            color:rgb(36, 36, 36);
             font-style: italic;
           }
           

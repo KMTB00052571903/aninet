@@ -6,12 +6,7 @@ class HeaderComponent extends HTMLElement {
   
     connectedCallback() {
       this.render();
-      this.shadowRoot!.querySelector("#login-btn")?.addEventListener("click", () => {
-        if (!document.querySelector("login-form")) {
-          const loginForm = document.createElement("login-form");
-          document.body.appendChild(loginForm);
-        }
-      });
+      this.setupEventListeners();
     }
   
     render() {
@@ -47,6 +42,11 @@ class HeaderComponent extends HTMLElement {
           p {
             font-size: 24px;
             color: white;
+            cursor: pointer;
+            margin: 0;
+          }
+          p:hover {
+            color: #FF0808;
           }
           input {
             font-size: 24px;
@@ -61,7 +61,6 @@ class HeaderComponent extends HTMLElement {
             color: #A4A4A4;
             padding: 8px;
           }
-
         </style>
   
         <header id="header">
@@ -82,7 +81,42 @@ class HeaderComponent extends HTMLElement {
         </header>
       `;
     }
+
+    setupEventListeners() {
+      this.shadowRoot!.querySelector("#login-btn")?.addEventListener("click", () => {
+        if (!document.querySelector("login-form")) {
+          const loginForm = document.createElement("login-form");
+          document.body.appendChild(loginForm);
+        }
+      });
+
+      this.shadowRoot!.querySelector("#profile")?.addEventListener("click", () => {
+        if (!document.querySelector("profile-component")) {
+          document.body.innerHTML = '';
+          
+          // Componentes necesarios
+          const header = document.createElement("header-component");
+          const profile = document.createElement("profile-component");
+          const footer = document.createElement("footer-component");
+          
+          document.body.appendChild(header);
+          document.body.appendChild(profile);
+          document.body.appendChild(footer);
+        }
+      });
+
+      this.shadowRoot!.querySelector("#home")?.addEventListener("click", () => {
+        document.body.innerHTML = '';
+        
+        const header = document.createElement("header-component");
+        const postList = document.createElement("post-list");
+        const footer = document.createElement("footer-component");
+        
+        document.body.appendChild(header);
+        document.body.appendChild(postList);
+        document.body.appendChild(footer);
+      });
+    }
   }
   
   export default HeaderComponent;
-  
