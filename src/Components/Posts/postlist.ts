@@ -193,6 +193,95 @@ class PostList extends HTMLElement {
           .visible {
             display: block;
           }
+            /* Responsive styles */
+          @media (max-width: 1200px) {
+            .image-container {
+              height: 500px;
+            }
+            
+            .post-footer {
+              padding: 12px 25px;
+            }
+          }
+          
+          @media (max-width: 992px) {
+            .post {
+              padding: 12px;
+              border-radius: 20px;
+            }
+            
+            .image-container {
+              height: 400px;
+              border-radius: 25px;
+            }
+            
+            .post-image {
+              border-radius: 25px;
+            }
+            
+            .post-actions {
+              gap: 8px;
+            }
+            
+            .action-btn {
+              padding: 6px 12px;
+            }
+            
+            .action-btn svg {
+              width: 20px;
+              height: 20px;
+            }
+          }
+          
+          @media (max-width: 768px) {
+            .image-container {
+              height: 350px;
+            }
+            
+            .post-footer {
+              flex-direction: column;
+              gap: 15px;
+            }
+            
+            .title-tag-container {
+              width: 100%;
+            }
+            
+            .post-actions {
+              width: 100%;
+              justify-content: flex-end;
+            }
+          }
+          
+          @media (max-width: 576px) {
+            .image-container {
+              height: 250px;
+              border-radius: 15px;
+            }
+            
+            .post-image {
+              border-radius: 15px;
+            }
+            
+            .post-header {
+              width: 100%;
+            }
+            
+            .user-icon {
+              width: 35px;
+              height: 35px;
+            }
+            
+            .tag {
+              font-size: 11px;
+              padding: 6px 12px;
+            }
+            
+            .comment-input {
+              font-size: 16px;
+              padding: 10px 12px;
+            }
+          }
         </style>
         ${posts.map((post: any) => `
           <div class="post">

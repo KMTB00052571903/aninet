@@ -87,6 +87,27 @@ class PostCreator extends HTMLElement {
           .submit-btn:active {
             transform: translateY(0);
           }
+                      @media (max-width: 576px) {
+            :host {
+              padding: 15px;
+              border-radius: 12px;
+            }
+            
+            .user-icon {
+              width: 40px;
+              height: 40px;
+            }
+            
+            .post-input {
+              padding: 15px;
+              font-size: 14px;
+            }
+            
+            .submit-btn {
+              padding: 6px 15px;
+              font-size: 13px;
+            }
+          }
         </style>
         
         <div class="post-creator">
