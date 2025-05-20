@@ -18,25 +18,5 @@ Jikan API: La API no-oficial de MyAnimeList para datos de anime.
 
 Custom Elements: Componentes web reutilizables.
 
-🚀 Cómo Empezar
-Requisitos Previos
-Node.js (v14 o superior)
-
-npm (v6 o superior)
-
-Instalación
-Clona el repositorio:
-
-bash
-git clone https://github.com/KMTB00052571903/aninet.git
-cd aninet
-Instala las dependencias:
-
-bash
-npm install
-Configura las variables de entorno:
-
-bash
-npm run dev
 
 
