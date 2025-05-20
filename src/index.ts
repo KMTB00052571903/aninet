@@ -1,11 +1,9 @@
 
-
-
 import HeaderComponent from './Components/header';
 import FooterComponent from './Components/footer';
 import PostList from './Components/postlist';
-import SignupForm from "./Components/SignupForm";
-import LoginForm from "./Components/LoginForm";
+import SignupForm from "./Components/Login/SignupForm";
+import LoginForm from "./Components/Login/LoginForm";
 import PostCreator from './Components/post';
 
 customElements.define("header-component", HeaderComponent)
