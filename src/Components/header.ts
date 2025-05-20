@@ -17,6 +17,9 @@ class HeaderComponent extends HTMLElement {
             this.navigateToExplore();
           }
         });
+         this.shadowRoot!.querySelector('[data-route="home"]')?.addEventListener('click', () => {
+            window.location.reload(); // Recarga la página
+        });
       });
     }
 
