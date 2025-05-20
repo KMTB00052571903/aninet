@@ -6,12 +6,25 @@ class HeaderComponent extends HTMLElement {
   
     connectedCallback() {
       this.render();
-      this.shadowRoot!.querySelector("#login-btn")?.addEventListener("click", () => {
-        if (!document.querySelector("login-form")) {
-          const loginForm = document.createElement("login-form");
-          document.body.appendChild(loginForm);
-        }
+      this.setupEventListeners();
+    }
+
+    setupEventListeners() {
+      this.shadowRoot!.querySelectorAll('.nav-link').forEach(link => {
+        link.addEventListener('click', (e) => {
+          const route = (e.target as HTMLElement).getAttribute('data-route');
+          if (route === 'watch') {
+            this.navigateToExplore();
+          }
+        });
       });
+    }
+
+    navigateToExplore() {
+      const mainContent = document.querySelector('main');
+      if (mainContent) {
+        mainContent.innerHTML = '<explore-page></explore-page>';
+      }
     }
   
     render() {
@@ -70,6 +83,54 @@ class HeaderComponent extends HTMLElement {
           height: 2px;
           background-color: #FF0808;
         }
+                  /* Responsive styles */
+        @media (max-width: 1200px) {
+          #header {
+            padding-left: 50px;
+            padding-right: 50px;
+            margin-left: 0;
+          }
+          
+          img {
+            width: 280px;
+          }
+          
+          #navbar {
+            width: 650px;
+            gap: 30px;
+          }
+        }
+        
+        @media (max-width: 992px) {
+          #header {
+            flex-direction: column;
+            gap: 20px;
+            padding: 25px 20px;
+          }
+          
+          #navbar {
+            width: 100%;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 20px;
+          }
+          
+          .nav-link {
+            font-size: 16px;
+          }
+        }
+        
+        @media (max-width: 576px) {
+          img {
+            width: 220px;
+          }
+          
+          .nav-link {
+            font-size: 14px;
+            letter-spacing: 0.5px;
+          }
+        }
+      </style>
       </style>
 
       <header id="header">
@@ -85,7 +146,7 @@ class HeaderComponent extends HTMLElement {
       </header>
     `;
   }
-  }
-  
-  export default HeaderComponent;
-  
+}
+
+customElements.define('header-component', HeaderComponent);
+export default HeaderComponent;
