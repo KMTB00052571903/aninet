@@ -6,12 +6,25 @@ class HeaderComponent extends HTMLElement {
   
     connectedCallback() {
       this.render();
-      this.shadowRoot!.querySelector("#login-btn")?.addEventListener("click", () => {
-        if (!document.querySelector("login-form")) {
-          const loginForm = document.createElement("login-form");
-          document.body.appendChild(loginForm);
-        }
+      this.setupEventListeners();
+    }
+
+    setupEventListeners() {
+      this.shadowRoot!.querySelectorAll('.nav-link').forEach(link => {
+        link.addEventListener('click', (e) => {
+          const route = (e.target as HTMLElement).getAttribute('data-route');
+          if (route === 'watch') {
+            this.navigateToExplore();
+          }
+        });
       });
+    }
+
+    navigateToExplore() {
+      const mainContent = document.querySelector('main');
+      if (mainContent) {
+        mainContent.innerHTML = '<explore-page></explore-page>';
+      }
     }
   
     render() {
@@ -133,7 +146,8 @@ class HeaderComponent extends HTMLElement {
       </header>
     `;
   }
-  }
-  
-  export default HeaderComponent;
+}
+
+customElements.define('header-component', HeaderComponent);
+export default HeaderComponent;
   
