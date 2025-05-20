@@ -3,7 +3,7 @@ export default class LoginForm extends HTMLElement {
       this.render();
       this.querySelector("form")!.addEventListener("submit", this.handleSubmit);
       this.querySelector("#close-btn")?.addEventListener("click", () => {
-        this.remove(); // o this.style.display = 'none';
+        this.remove(); 
       });
     }
   
@@ -18,7 +18,6 @@ export default class LoginForm extends HTMLElement {
         return;
       }
   
-      // Simulación de login (aquí podrías conectar con tu estado global mock)
       console.log("Inicio de sesión:", { email });
       alert("¡Bienvenido de nuevo!");
       form.reset();
