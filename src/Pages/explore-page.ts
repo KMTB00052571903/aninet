@@ -277,7 +277,7 @@ class ExplorePage extends HTMLElement {
             this.fetchTopAnime(this.currentPage + 1);
         });
 
-        // Search functionality
+        // Para buscar
         this.shadowRoot!.querySelector('.search-btn')?.addEventListener('click', () => {
             this.handleSearch();
         });
