@@ -1,0 +1,73 @@
+{
+  "profiles": [
+    {
+      "id": 1,
+      "username": "AnimeLover42",
+      "profilePic": "https://i.pravatar.cc/300?img=1",
+      "bannerImage": "https://via.placeholder.com/1200x300/111111/FF0808?text=Anime+Banner",
+      "bio": "Apasionado del anime shonen. Mis favoritos son Naruto, Dragon Ball y One Piece. También disfruto de películas de Studio Ghibli.",
+      "favoritesCount": 215,
+      "watchingCount": 32,
+      "completedCount": 478,
+      "interests": ["Anime shonen", "Películas Studio Ghibli", "Manga"],
+      "favoriteAnime": ["Naruto", "Dragon Ball Z", "Attack on Titan"],
+      "posts": [
+        {
+          "id": 101,
+          "image": "https://via.placeholder.com/400x200/333333/FFFFFF?text=Anime+Post+1",
+          "title": "Mi top 5 de animes este año",
+          "content": "Aquí está mi lista de los mejores animes que he visto este año...",
+          "likes": 42,
+          "comments": 8,
+          "date": "2023-05-15"
+        }
+      ]
+    },
+    {
+      "id": 2,
+      "username": "DisneyFanatic",
+      "profilePic": "https://i.pravatar.cc/300?img=2",
+      "bannerImage": "https://via.placeholder.com/1200x300/111111/00A2FF?text=Disney+Banner",
+      "bio": "Amante de todas las películas de Disney y Pixar. Colecciono figuras y siempre estoy al día con los nuevos estrenos.",
+      "favoritesCount": 87,
+      "watchingCount": 12,
+      "completedCount": 156,
+      "interests": ["Películas Disney", "Pixar", "Animación occidental"],
+      "favoriteAnime": ["Big Hero 6", "Ronja, la hija del bandolero", "Avatar: La Leyenda de Aang"],
+      "posts": [
+        {
+          "id": 201,
+          "image": "https://via.placeholder.com/400x200/333333/FFFFFF?text=Disney+Post+1",
+          "title": "Mi colección de figuras Disney",
+          "content": "Acabo de completar mi colección de los 12 trabajos de Hércules...",
+          "likes": 78,
+          "comments": 15,
+          "date": "2023-06-20"
+        }
+      ]
+    },
+    {
+      "id": 3,
+      "username": "SeriesMaster",
+      "profilePic": "https://i.pravatar.cc/300?img=3",
+      "bannerImage": "https://via.placeholder.com/1200x300/111111/00FF88?text=Series+Banner",
+      "bio": "Prefiero las series americanas de fantasía y ciencia ficción. Game of Thrones, Stranger Things y The Witcher son mis favoritas.",
+      "favoritesCount": 65,
+      "watchingCount": 18,
+      "completedCount": 92,
+      "interests": ["Series de fantasía", "Ciencia ficción", "Drama"],
+      "favoriteAnime": ["The Witcher: Nightmare of the Wolf", "Castlevania", "Arcane"],
+      "posts": [
+        {
+          "id": 301,
+          "image": "https://via.placeholder.com/400x200/333333/FFFFFF?text=Series+Post+1",
+          "title": "Análisis del último episodio de The Witcher",
+          "content": "El desarrollo de personajes en esta temporada ha sido increíble...",
+          "likes": 56,
+          "comments": 23,
+          "date": "2023-07-10"
+        }
+      ]
+    }
+  ]
+}
