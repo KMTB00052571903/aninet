@@ -1,33 +1,38 @@
 class HeaderComponent extends HTMLElement {
     constructor() {
-      super();
-      this.attachShadow({ mode: "open" });
+        super();
+        this.attachShadow({ mode: "open" });
     }
-  
+
     connectedCallback() {
-      this.render();
-      this.setupEventListeners();
+        this.render();
+        this.setupEventListeners();
     }
 
     setupEventListeners() {
-      this.shadowRoot!.querySelectorAll('.nav-link').forEach(link => {
-        link.addEventListener('click', (e) => {
-          const route = (e.target as HTMLElement).getAttribute('data-route');
-          if (route === 'watch') {
-            this.navigateToExplore();
-          }
+        // Configurar eventos para cada enlace de navegación
+        this.shadowRoot!.querySelector('[data-route="home"]')?.addEventListener('click', () => {
+            window.location.reload();
         });
-         this.shadowRoot!.querySelector('[data-route="home"]')?.addEventListener('click', () => {
-            window.location.reload(); // Recarga la página
+
+        this.shadowRoot!.querySelector('[data-route="watch"]')?.addEventListener('click', () => {
+            this.navigateTo('<explore-page></explore-page>');
         });
-      });
+
+        this.shadowRoot!.querySelector('[data-route="categories"]')?.addEventListener('click', () => {
+            this.navigateTo('<categories-page></categories-page>');
+        });
+
+        this.shadowRoot!.querySelector('[data-route="profile"]')?.addEventListener('click', () => {
+            this.navigateTo('<profile-page></profile-page>');
+        });
     }
 
-    navigateToExplore() {
-      const mainContent = document.querySelector('main');
-      if (mainContent) {
-        mainContent.innerHTML = '<explore-page></explore-page>';
-      }
+    navigateTo(content: string) {
+        const mainContent = document.querySelector('main');
+        if (mainContent) {
+            mainContent.innerHTML = content;
+        }
     }
   
     render() {
