@@ -21,7 +21,7 @@ class CategoriesPage extends HTMLElement {
                     const animeData = await animeResponse.json();
                     contentData = animeData.data.map((item: any) => ({
                         image: item.images?.jpg?.image_url,
-                        title: item.title,
+                        title: item.title, 
                         id: item.mal_id
                     }));
                     break;
