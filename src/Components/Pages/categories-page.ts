@@ -1,6 +1,6 @@
 class CategoriesPage extends HTMLElement {
-    private currentView: 'categories' | 'anime-list' = 'categories';
-    private currentGenreId: string | null = null;
+    private currentView: 'categories' | 'content-list' = 'categories';
+    private currentCategory: { id: string; type: string; name: string } | null = null;
 
     constructor() {
         super();
@@ -11,19 +11,63 @@ class CategoriesPage extends HTMLElement {
         this.render();
     }
 
-    async fetchAnimeByGenre(genreId: string) {
+    async fetchContentByCategory(categoryId: string, categoryType: string) {
         try {
-            const response = await fetch(`https://api.jikan.moe/v4/top/anime?page=${genreId}`);
-            const data = await response.json();
-            this.renderAnimeList(data.data);
-            this.currentView = 'anime-list';
-            this.currentGenreId = genreId;
+            let contentData: any[] = [];
+
+            switch (categoryType) {
+                case 'anime':
+                    const animeResponse = await fetch(`https://api.jikan.moe/v4/seasons/now?genres=${categoryId}`);
+                    const animeData = await animeResponse.json();
+                    contentData = animeData.data.map((item: any) => ({
+                        image: item.images?.jpg?.image_url,
+                        title: item.title,
+                        id: item.mal_id
+                    }));
+                    break;
+                
+                case 'american-animation':
+                    const disneyResponse = await fetch('https://api.disneyapi.dev/character');
+                    const disneyData = await disneyResponse.json();
+                    contentData = disneyData.data.map((item: any) => ({
+                        image: item.imageUrl,
+                        title: item.name,
+                        id: item._id
+                    }));
+                    break;
+                
+                case 'donghua':
+                        try {
+                        const donghuaResponse = await fetch('../src/Assets/donghua.json');
+                        const donghuaData = await donghuaResponse.json();
+                        contentData = donghuaData.donghua.map((item: any) => ({ // Usar donghuaData.donghua
+                        image: item.image_url, // Cambiar a image_url para coincidir 
+                        title: item.title,
+                        id: item.title // Usar el título como ID temporal
+                        }));
+                         } catch (error) {
+                                console.error('Error loading Donghua JSON:', error);
+                                contentData = [];
+                        }
+                    break;
+                
+                
+                default:
+                    console.error('Unknown category type:', categoryType);
+                    return;
+            }
+
+            this.renderContentList(contentData, categoryType);
+            this.currentView = 'content-list';
+            
         } catch (error) {
-            console.error('Error fetching anime by genre:', error);
+            console.error('Error fetching content:', error);
         }
     }
 
-    renderAnimeList(animes: any[]) {
+    renderContentList(items: any[], categoryType: string) {
+        const categoryName = this.currentCategory?.name || 'Content';
+        
         this.shadowRoot!.innerHTML = `
             <style>
                 :host {
@@ -55,35 +99,41 @@ class CategoriesPage extends HTMLElement {
                     background-color: #cc0000;
                 }
 
-                .anime-list {
+                .content-title {
+                    font-size: 1.8rem;
+                    color: #FF0808;
+                    margin-bottom: 20px;
+                }
+
+                .content-list {
                     display: grid;
                     grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
                     gap: 20px;
                 }
 
-                .anime-card {
+                .content-card {
                     background: #1a1a1a;
                     border-radius: 10px;
                     overflow: hidden;
                     transition: all 0.3s;
                 }
 
-                .anime-card:hover {
+                .content-card:hover {
                     transform: translateY(-5px);
                     box-shadow: 0 10px 20px rgba(0, 0, 0, 0.3);
                 }
 
-                .anime-image {
+                .content-image {
                     width: 100%;
                     height: 250px;
                     object-fit: cover;
                 }
 
-                .anime-info {
+                .content-info {
                     padding: 15px;
                 }
 
-                .anime-title {
+                .content-name {
                     margin: 0;
                     font-size: 1rem;
                     white-space: nowrap;
@@ -91,22 +141,29 @@ class CategoriesPage extends HTMLElement {
                     text-overflow: ellipsis;
                 }
 
+                .no-content {
+                    grid-column: 1 / -1;
+                    text-align: center;
+                    padding: 40px;
+                    color: #A4A4A4;
+                }
+
                 @media (max-width: 768px) {
-                    .anime-list {
+                    .content-list {
                         grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
                     }
 
-                    .anime-image {
+                    .content-image {
                         height: 200px;
                     }
                 }
 
                 @media (max-width: 480px) {
-                    .anime-list {
+                    .content-list {
                         grid-template-columns: repeat(auto-fill, minmax(120px, 1fr));
                     }
 
-                    .anime-image {
+                    .content-image {
                         height: 150px;
                     }
                 }
@@ -114,15 +171,19 @@ class CategoriesPage extends HTMLElement {
 
             <div class="page-container">
                 <button class="back-button">← Back to Categories</button>
-                <div class="anime-list">
-                    ${animes.map(anime => `
-                        <div class="anime-card">
-                            <img class="anime-image" src="${anime.images?.jpg?.image_url || 'https://via.placeholder.com/200x300'}" alt="${anime.title}">
-                            <div class="anime-info">
-                                <h3 class="anime-title">${anime.title}</h3>
+                <h2 class="content-title">${categoryName}</h2>
+                <div class="content-list">
+                    ${items.length > 0 ? 
+                        items.map(item => `
+                            <div class="content-card">
+                                <img class="content-image" src="${item.image || 'https://via.placeholder.com/200x300'}" alt="${item.title}">
+                                <div class="content-info">
+                                    <h3 class="content-name">${item.title}</h3>
+                                </div>
                             </div>
-                        </div>
-                    `).join('')}
+                        `).join('') : 
+                        `<div class="no-content">No content available for this category</div>`
+                    }
                 </div>
             </div>
         `;
@@ -216,37 +277,37 @@ class CategoriesPage extends HTMLElement {
             <div class="page-container">
                 <h1 class="page-title">Animation Categories</h1>
                 <div class="categories-container">
-                    <div class="category-card" data-id="1">
+                    <div class="category-card" data-id="1" data-type="anime">
                         <img class="category-image" src="https://res.cloudinary.com/di4ckwvxe/image/upload/v1748380593/Anime_i538vx.jpg" alt="Anime">
                         <div class="category-overlay">
                             <h3 class="category-name">Anime</h3>
                         </div>
                     </div>
-                    <div class="category-card" data-id="2">
+                    <div class="category-card" data-id="2" data-type="american-animation">
                         <img class="category-image" src="https://res.cloudinary.com/di4ckwvxe/image/upload/v1748380594/American_fx6pd6.jpg" alt="American Animation">
                         <div class="category-overlay">
                             <h3 class="category-name">American Animation</h3>
                         </div>
                     </div>
-                    <div class="category-card" data-id="3">
+                    <div class="category-card" data-id="3" data-type="donghua">
                         <img class="category-image" src="https://res.cloudinary.com/di4ckwvxe/image/upload/v1748380594/Donghua_sx7sj0.jpg" alt="Chinese Animation (Donghua)">
                         <div class="category-overlay">
                             <h3 class="category-name">Chinese Animation (Donghua)</h3>
                         </div>
                     </div>
-                    <div class="category-card" data-id="4">
+                    <div class="category-card" data-id="4" data-type="western">
                         <img class="category-image" src="https://res.cloudinary.com/di4ckwvxe/image/upload/v1748380382/West_uflpje.png" alt="Western Animation">
                         <div class="category-overlay">
                             <h3 class="category-name">Western Animation</h3>
                         </div>
                     </div>
-                    <div class="category-card" data-id="5">
+                    <div class="category-card" data-id="5" data-type="3d">
                         <img class="category-image" src="https://res.cloudinary.com/di4ckwvxe/image/upload/v1748380592/3D_uqqzew.jpg" alt="3D Animation">
                         <div class="category-overlay">
                             <h3 class="category-name">3D Animation</h3>
                         </div>
                     </div>
-                    <div class="category-card" data-id="6">
+                    <div class="category-card" data-id="6" data-type="stop-motion">
                         <img class="category-image" src="https://res.cloudinary.com/di4ckwvxe/image/upload/v1748380593/Stop-Motion_licyif.jpg" alt="Stop-Motion">
                         <div class="category-overlay">
                             <h3 class="category-name">Stop-Motion</h3>
@@ -262,19 +323,22 @@ class CategoriesPage extends HTMLElement {
     render() {
         if (this.currentView === 'categories') {
             this.renderCategories();
-        } else if (this.currentView === 'anime-list' && this.currentGenreId) {
-            this.fetchAnimeByGenre(this.currentGenreId);
+        } else if (this.currentView === 'content-list' && this.currentCategory) {
+            this.fetchContentByCategory(this.currentCategory.id, this.currentCategory.type);
         }
     }
 
     setupEventListeners() {
         this.shadowRoot!.querySelectorAll('.category-card').forEach(card => {
             card.addEventListener('click', () => {
-                const genreId = card.getAttribute('data-id');
-                if (genreId === '1') { // Solo Anime carga la lista de animes
-                    this.fetchAnimeByGenre(genreId);
+                const categoryId = card.getAttribute('data-id');
+                const categoryType = card.getAttribute('data-type');
+                const categoryName = card.querySelector('.category-name')?.textContent || 'Content';
+                
+                if (categoryId && categoryType) {
+                    this.currentCategory = { id: categoryId, type: categoryType, name: categoryName };
+                    this.fetchContentByCategory(categoryId, categoryType);
                 }
-                // Para otras categorías podrías añadir lógica similar cuando tengas APIs para ellas
             });
         });
     }
