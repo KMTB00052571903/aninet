@@ -17,7 +17,7 @@ class CategoriesPage extends HTMLElement {
 
             switch (categoryType) {
                 case 'anime':
-                    const animeResponse = await fetch(`https://api.jikan.moe/v4/seasons/now?genres=${categoryId}`);
+                    const animeResponse = await fetch(`https://api.jikan.moe/v4/anime?genres=${categoryId}`);
                     const animeData = await animeResponse.json();
                     contentData = animeData.data.map((item: any) => ({
                         image: item.images?.jpg?.image_url,
@@ -27,14 +27,19 @@ class CategoriesPage extends HTMLElement {
                     break;
                 
                 case 'american-animation':
-                    const disneyResponse = await fetch('https://api.disneyapi.dev/character');
-                    const disneyData = await disneyResponse.json();
-                    contentData = disneyData.data.map((item: any) => ({
-                        image: item.imageUrl,
-                        title: item.name,
-                        id: item._id
-                    }));
-                    break;
+                         try {
+                        const disneyResponse = await fetch('../src/Assets/disney.json'); // Usa ruta relativa
+                        const disneyData = await disneyResponse.json();
+                        contentData = disneyData.disney.map((item: any) => ({ // Cambia .data por .disney
+                        image: item.image_url,  // Usa image_url que está en tu JSON
+                        title: item.title,
+                        id: item.title // Usamos el título como ID temporal
+                         }));
+                        } catch (error) {
+                            console.error('Error loading Disney JSON:', error);
+                            contentData = [];
+                            }
+                        break;
                 
                 case 'donghua':
                         try {
@@ -49,7 +54,7 @@ class CategoriesPage extends HTMLElement {
                                 console.error('Error loading Donghua JSON:', error);
                                 contentData = [];
                         }
-                    break;
+                        break;
                 
                 
                 default:
@@ -170,7 +175,9 @@ class CategoriesPage extends HTMLElement {
             </style>
 
             <div class="page-container">
-                <button class="back-button">← Back to Categories</button>
+                <button class="back-button"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-arrow-left" viewBox="0 0 12 12">
+  <path fill-rule="evenodd" d="M15 8a.5.5 0 0 0-.5-.5H2.707l3.147-3.146a.5.5 0 1 0-.708-.708l-4 4a.5.5 0 0 0 0 .708l4 4a.5.5 0 0 0 .708-.708L2.707 8.5H14.5A.5.5 0 0 0 15 8"/>
+</svg>   Back to Categories</button>
                 <h2 class="content-title">${categoryName}</h2>
                 <div class="content-list">
                     ${items.length > 0 ? 
@@ -280,7 +287,7 @@ class CategoriesPage extends HTMLElement {
                     <div class="category-card" data-id="1" data-type="anime">
                         <img class="category-image" src="https://res.cloudinary.com/di4ckwvxe/image/upload/v1748380593/Anime_i538vx.jpg" alt="Anime">
                         <div class="category-overlay">
-                            <h3 class="category-name">Anime</h3>
+                            <h3 class="category-name">Japanese Animation <br> Anime</h3>
                         </div>
                     </div>
                     <div class="category-card" data-id="2" data-type="american-animation">

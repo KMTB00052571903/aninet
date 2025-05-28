@@ -1,0 +1,76 @@
+{
+  "disney": [
+    {
+      "title": "Pinocchio",
+      "image_url": "https://m.media-amazon.com/images/I/91m2ObsmdLL._AC_UF1000,1000_QL80_.jpg"
+    },
+    {
+      "title": "Brave",
+      "image_url": "https://m.media-amazon.com/images/M/MV5BMzgwODk3ODA1NF5BMl5BanBnXkFtZTcwNjU3NjQ0Nw@@._V1_FMjpg_UX1000_.jpg"
+    },
+    {
+      "title": "The Emperor's New Groove",
+      "image_url": "https://www.intofilm.org/intofilm-production/scaledcropped/970x546https%3A/s3-eu-west-1.amazonaws.com/images.cdn.filmclub.org/film__2987-the-emperor-s-new-groove--hi_res-150a6292.jpg/film__2987-the-emperor-s-new-groove--hi_res-150a6292.jpg"
+    },
+    {
+      "title": "Tangled",
+      "image_url": "https://resizing.flixster.com/-XZAfHZM39UwaGJIFWKAE8fS0ak=/v3/t/assets/p8033989_p_v8_aq.jpg"
+    },
+    {
+      "title": "The Little Mermaid",
+      "image_url": "https://www.freep.com/gcdn/presto/2019/07/03/USAT/7ee50b2a-6acb-4924-a98b-b1d3045691c4-AP_Film-The_Little_Mermaid-Anniversary.JPG?width=1733&height=1051&fit=crop&format=pjpg&auto=webp"
+    },
+    {
+      "title": "Atlantis: The Lost Empire",
+      "image_url": "https://m.media-amazon.com/images/S/pv-target-images/f876032cf7c0762c5f0cccecae4ff11094b2b47aee65052f519282b04c7fe7ec.jpg"
+    },
+    {
+      "title": "Lilo & Stitch",
+      "image_url": "https://images.squarespace-cdn.com/content/v1/54fc8146e4b02a22841f4df7/1716204940588-USETMXO0HWGEALE28YEL/cover2.jpg"
+    },
+    {
+      "title": "Frozen",
+      "image_url": "https://cdn.hobbyconsolas.com/sites/navi.axelspringer.es/public/media/image/2018/11/frozen-tendra-secuela-2019.jpg?tf=3840x"
+    },
+    {
+      "title": "Zootopia",
+      "image_url": "https://resizing.flixster.com/-XZAfHZM39UwaGJIFWKAE8fS0ak=/v3/t/assets/p11993845_p_v8_aq.jpg"
+    },
+    {
+      "title": "Moana",
+      "image_url": "https://laestatuilla.com/wp-content/uploads/2024/12/moana-2-critica-opinion.jpg"
+    },
+    {
+      "title": "Toy Story",
+      "image_url": "https://images.justwatch.com/poster/778054/s718/toy-story.jpg"
+    },
+    {
+      "title": "A Bug's Life",
+      "image_url": "https://resizing.flixster.com/-XZAfHZM39UwaGJIFWKAE8fS0ak=/v3/t/assets/p22070_p_v12_am.jpg"
+    },
+    {
+      "title": "The Incredibles",
+      "image_url": "https://m.media-amazon.com/images/M/MV5BOTBlYmRmNzctMjI3Ni00MDRiLWE4YWMtZGM1NDgyODU2MmVjXkEyXkFqcGc@._V1_FMjpg_UX1000_.jpg"
+    },
+    {
+      "title": "WALL-E",
+      "image_url": "https://m.media-amazon.com/images/M/MV5BMjExMTg5OTU0NF5BMl5BanBnXkFtZTcwMjMxMzMzMw@@._V1_.jpg"
+    },
+    {
+      "title": "Up",
+      "image_url": "https://i.pinimg.com/736x/24/19/a8/2419a87ffc4dcc9f8cc1a7bdfecb8398.jpg"
+    },
+    {
+      "title": "Inside Out",
+      "image_url": "https://cdn.warp.la/wp-content/uploads/2024/06/inside-out_2_04-1000x600.jpg"
+    },
+    {
+      "title": "Coco",
+      "image_url": "https://images.justwatch.com/poster/14079590/s718/coco.jpg"
+    },
+    {
+      "title": "Ratatouille",
+      "image_url": "https://m.media-amazon.com/images/M/MV5BMTMzODU0NTkxMF5BMl5BanBnXkFtZTcwMjQ4MzMzMw@@._V1_FMjpg_UX1000_.jpg"
+    }
+  ]
+}
