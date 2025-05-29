@@ -8,17 +8,67 @@ class ExplorePage extends HTMLElement {
 
     connectedCallback() {
         this.render();
-        this.fetchTopAnime();
+        this.fetchCombinedContent();
     }
 
-    async fetchTopAnime(page = 1) {
+    async fetchCombinedContent(page = 1) {
         try {
-            const response = await fetch(`https://api.jikan.moe/v4/top/anime?page=${page}`);
-            const data = await response.json();
-            this.renderAnimeCards(data.data);
+            // 1. Fetch top anime from Jikan API
+            const animeResponse = await fetch(`https://api.jikan.moe/v4/top/anime?page=${page}`);
+            const animeData = await animeResponse.json();
+            
+            // 2. Fetch local content (solo título e imagen)
+            const localContent = await this.fetchLocalContent();
+            
+            // 3. Combinar y formatear los datos manteniendo la estructura original
+            const combinedContent = [
+                ...animeData.data.map((anime: any) => ({
+                    title: anime.title,
+                    image_url: anime.images?.jpg?.image_url,
+                    type: anime.type || 'TV',
+                    score: anime.score || 'N/A',
+                    episodes: anime.episodes || '?',
+                    status: anime.status || 'Unknown',
+                    synopsis: anime.synopsis?.substring(0, 100) || 'No synopsis available'
+                })),
+                ...localContent.map((item: any) => ({
+                    title: item.title,
+                    image_url: item.image_url,
+                    type: item.type || 'Animation',
+                    score: 'N/A',
+                    episodes: '?',
+                    status: 'Unknown',
+                    synopsis: 'Description not available'
+                }))
+            ];
+
+            this.renderAnimeCards(combinedContent);
             this.currentPage = page;
         } catch (error) {
-            console.error('Error fetching anime:', error);
+            console.error('Error fetching content:', error);
+        }
+    }
+
+    async fetchLocalContent(): Promise<any[]> {
+        try {
+            const [disney, donghua, animation3d, stopMotion, western] = await Promise.all([
+                fetch('../src/Assets/disney.json').then(res => res.json()),
+                fetch('../src/Assets/donghua.json').then(res => res.json()),
+                fetch('../src/Assets/3d-animation.json').then(res => res.json()),
+                fetch('../src/Assets/Stop-Motion.json').then(res => res.json()),
+                fetch('../src/Assets/Western-Animation.json').then(res => res.json())
+            ]);
+
+            return [
+                ...disney.disney.map((item: any) => ({ title: item.title, image_url: item.image_url, type: 'Disney' })),
+                ...donghua.donghua.map((item: any) => ({ title: item.title, image_url: item.image_url, type: 'Donghua' })),
+                ...animation3d["3d_animation"].map((item: any) => ({ title: item.title, image_url: item.image_url, type: '3D' })),
+                ...stopMotion.stop_motion.map((item: any) => ({ title: item.title, image_url: item.image_url, type: 'Stop Motion' })),
+                ...western.western_animation.map((item: any) => ({ title: item.title, image_url: item.image_url, type: 'Western' }))
+            ];
+        } catch (error) {
+            console.error('Error loading local content:', error);
+            return [];
         }
     }
 
@@ -28,23 +78,24 @@ class ExplorePage extends HTMLElement {
             container.innerHTML = animes.map(anime => `
                 <div class="anime-card">
                     <div class="anime-image">
-                        <img src="${anime.images.jpg.image_url}" alt="${anime.title}">
-                        <div class="anime-score">⭐ ${anime.score || 'N/A'}</div>
+                        <img src="${anime.image_url || 'https://via.placeholder.com/300x450?text=No+Image'}" alt="${anime.title}">
+                        <div class="anime-score">⭐ ${anime.score}</div>
                     </div>
                     <div class="anime-info">
                         <h3>${anime.title}</h3>
                         <div class="anime-details">
                             <span>${anime.type}</span>
-                            <span>${anime.episodes || '?'} eps</span>
+                            <span>${anime.episodes} eps</span>
                             <span>${anime.status}</span>
                         </div>
-                        <p class="anime-synopsis">${anime.synopsis?.substring(0, 100)}...</p>
+                        <p class="anime-synopsis">${anime.synopsis}...</p>
                     </div>
                 </div>
             `).join('');
         }
     }
 
+    // Mantenemos el resto de métodos exactamente igual que en tu versión original
     render() {
         this.shadowRoot!.innerHTML = `
             <style>
@@ -269,33 +320,23 @@ class ExplorePage extends HTMLElement {
     setupEventListeners() {
         this.shadowRoot!.querySelector('.prev-btn')?.addEventListener('click', () => {
             if (this.currentPage > 1) {
-                this.fetchTopAnime(this.currentPage - 1);
+                this.fetchCombinedContent(this.currentPage - 1);
             }
         });
 
         this.shadowRoot!.querySelector('.next-btn')?.addEventListener('click', () => {
-            this.fetchTopAnime(this.currentPage + 1);
+            this.fetchCombinedContent(this.currentPage + 1);
         });
 
-        // Pa buscar
         this.shadowRoot!.querySelector('.search-btn')?.addEventListener('click', () => {
             this.handleSearch();
         });
 
         this.shadowRoot!.querySelector('.search-input')?.addEventListener('keypress', (e: Event) => {
-         const keyboardEvent = e as KeyboardEvent;
-         if (keyboardEvent.key === 'Enter') {
-        this.handleSearch();
-          }
-     });
-
-        // Anime card clicks
-        this.shadowRoot!.querySelectorAll('.anime-card').forEach(card => {
-            card.addEventListener('click', (e) => {
-                const animeTitle = (e.currentTarget as HTMLElement).querySelector('h3')?.textContent;
-                console.log('Selected anime:', animeTitle);
-                //página de detalles
-            });
+            const keyboardEvent = e as KeyboardEvent;
+            if (keyboardEvent.key === 'Enter') {
+                this.handleSearch();
+            }
         });
     }
 
@@ -305,12 +346,59 @@ class ExplorePage extends HTMLElement {
         
         if (query) {
             try {
-                const response = await fetch(`https://api.jikan.moe/v4/anime?q=${query}`);
-                const data = await response.json();
-                this.renderAnimeCards(data.data);
+                // Buscar en ambos datos
+                const [apiResults, localResults] = await Promise.all([
+                    this.searchJikanAnime(query),
+                    this.searchLocalContent(query)
+                ]);
+
+                const combinedResults = [
+                    ...apiResults,
+                    ...localResults.map((item: any) => ({
+                        ...item,
+                        type: item.type || 'Animation',
+                        score: 'N/A',
+                        episodes: '?',
+                        status: 'Unknown',
+                        synopsis: 'Description not available'
+                    }))
+                ];
+
+                this.renderAnimeCards(combinedResults);
             } catch (error) {
                 console.error('Error searching anime:', error);
             }
+        }
+    }
+
+    async searchJikanAnime(query: string): Promise<any[]> {
+        try {
+            const response = await fetch(`https://api.jikan.moe/v4/anime?q=${query}`);
+            const data = await response.json();
+            return data.data.map((anime: any) => ({
+                title: anime.title,
+                image_url: anime.images?.jpg?.image_url,
+                type: anime.type || 'TV',
+                score: anime.score || 'N/A',
+                episodes: anime.episodes || '?',
+                status: anime.status || 'Unknown',
+                synopsis: anime.synopsis?.substring(0, 100) || 'No synopsis available'
+            }));
+        } catch (error) {
+            console.error('Error searching anime:', error);
+            return [];
+        }
+    }
+
+    async searchLocalContent(query: string): Promise<any[]> {
+        try {
+            const localContent = await this.fetchLocalContent();
+            return localContent.filter(item => 
+                item.title.toLowerCase().includes(query.toLowerCase())
+            );
+        } catch (error) {
+            console.error('Error searching local content:', error);
+            return [];
         }
     }
 }

@@ -1,0 +1,29 @@
+{
+  "stop_motion": [
+    {"title": "Coraline", "image_url": "https://www.lavanguardia.com/peliculas-series/images/all/movie/posters/2009/2/movie-14836/w1280/8fd0m5xi6OX9VJJm8cHATbtqy6B.jpg"},
+    {"title": "Wallace & Gromit: The Curse of the Were-Rabbit", "image_url": "https://pics.filmaffinity.com/Wallace_y_Gromit_La_venganza_se_sirve_con_plumas-462687859-large.jpg"},
+    {"title": "Chicken Run", "image_url": "https://m.media-amazon.com/images/M/MV5BZGViZmJjMTQtNDk3NC00NjQ4LTg0ODItYWI3MjY3YmUwMjczXkEyXkFqcGc@._V1_.jpg"},
+    {"title": "The Nightmare Before Christmas", "image_url": "https://m.media-amazon.com/images/M/MV5BNmYxOTAzZWYtOGI3Yi00ODc3LTk5ZjYtZTY0MzVkZTg3YmRiXkEyXkFqcGc@._V1_.jpg"},
+    {"title": "James and the Giant Peach", "image_url": "https://s3.amazonaws.com/nightjarprod/content/uploads/sites/249/2023/07/27160100/nl2oB6EbD1fHFuP2TLUHDtqs7Ux.jpg"},
+    {"title": "Fantastic Mr. Fox", "image_url": "https://m.media-amazon.com/images/S/pv-target-images/b54c6f334c8a1b0d8aa5fff693a14b4eb3bdc7cc83d5f16cccd56761d388c75e.jpg"},
+    {"title": "Isle of Dogs", "image_url": "https://m.media-amazon.com/images/M/MV5BYjZkYzYwNmQtNjk3ZC00Y2M2LThhY2EtODIzOThiNDJmMTk2XkEyXkFqcGdeQW1yb3NzZXI@._V1_QL75_UY281_CR86,0,500,281_.jpg"},
+    {"title": "Kubo and the Two Strings", "image_url": "https://m.media-amazon.com/images/M/MV5BMjA2Mzg2NDMzNl5BMl5BanBnXkFtZTgwMjcwODUzOTE@._V1_.jpg"},
+    {"title": "ParaNorman", "image_url": "https://m.media-amazon.com/images/M/MV5BZTI0MjA3M2ItY2QzMS00MzZiLWE5YTAtM2ZlODk1MjBhNjA0XkEyXkFqcGc@._V1_.jpg"},
+    {"title": "The Boxtrolls", "image_url": "https://m.media-amazon.com/images/M/MV5BMTQxODA5MDkyNV5BMl5BanBnXkFtZTgwMDMyNjkzMjE@._V1_.jpg"},
+    {"title": "Missing Link", "image_url": "https://m.media-amazon.com/images/M/MV5BYTBiMzZiM2MtYTMxMS00M2Q3LTkwYTItOWMzMDkyMTdlOGU2XkEyXkFqcGc@._V1_.jpg"},
+    {"title": "Mary and Max", "image_url": "https://m.media-amazon.com/images/M/MV5BMjAwMzUzMjcwMF5BMl5BanBnXkFtZTcwMzg5ODM5Mg@@._V1_.jpg"},
+    {"title": "Anomalisa", "image_url": "https://m.media-amazon.com/images/M/MV5BNjc5YTAyNWMtMDZhYi00ZjdkLTg2NzQtMjUxOTAzMzJhMWIzXkEyXkFqcGc@._V1_FMjpg_UX1000_.jpg"},
+    {"title": "My Life as a Zucchini", "image_url": "https://m.media-amazon.com/images/M/MV5BNjllODljODUtZjVjNi00YjgxLWI4YWItODQ3MzY3ZThmNTg1XkEyXkFqcGc@._V1_.jpg"},
+    {"title": "The House (2022)", "image_url": "https://m.media-amazon.com/images/M/MV5BYWU3Nzc3MGYtMGYyZi00ZmJkLWFhODQtZTk0OTkyM2ViY2ExXkEyXkFqcGc@._V1_.jpg"},
+    {"title": "The Little Prince", "image_url": "https://m.media-amazon.com/images/M/MV5BNjg0OTM5OTQyNV5BMl5BanBnXkFtZTgwNDg5NDQ0NTE@._V1_.jpg"},
+    {"title": "The Pirates! Band of Misfits", "image_url": "https://m.media-amazon.com/images/M/MV5BYjAyNDc5ZTYtZGQyZi00NGFkLWI0Y2MtNTU5YTgxNGVjY2Y1XkEyXkFqcGc@._V1_FMjpg_UX1000_.jpg"},
+    {"title": "Early Man", "image_url": "https://m.media-amazon.com/images/M/MV5BZDY1Njk4OGYtYTdhNy00NGZkLTk1MzQtNjFmNjNlYzRlMjNiXkEyXkFqcGc@._V1_.jpg"},
+    {"title": "Shaun the Sheep Movie", "image_url": "https://m.media-amazon.com/images/M/MV5BOTc1ODY5MTQ1Nl5BMl5BanBnXkFtZTgwMDM5ODI1NjE@._V1_.jpg"},
+    {"title": "A Shaun the Sheep Movie: Farmageddon", "image_url": "https://m.media-amazon.com/images/M/MV5BMDQ0MTJiMDItN2ZkNi00NGQ1LTg5NTYtYTZmYTA3NWM4ZTk4XkEyXkFqcGc@._V1_.jpg"},
+    {"title": "Robin Robin", "image_url": "https://m.media-amazon.com/images/M/MV5BNjVhOGRkMjUtYTU4NS00YTU3LThjNzEtNjA4ZWU4NjhkMDc4XkEyXkFqcGc@._V1_FMjpg_UX1000_.jpg"},
+    {"title": "The Adventures of Mark Twain", "image_url": "https://m.media-amazon.com/images/M/MV5BZDBjOGYxYzktMjM1YS00ZTRmLTk3NjUtOTUxY2RlMDg5YTY4XkEyXkFqcGc@._V1_.jpg"},
+    {"title": "The Secret Adventures of Tom Thumb", "image_url": "https://m.media-amazon.com/images/M/MV5BMTU4MTYyMDg1M15BMl5BanBnXkFtZTYwMzgxMjI5._V1_.jpg"},
+    {"title": "The Sandman (1991)", "image_url": "https://m.media-amazon.com/images/M/MV5BNjc1ZDFjM2QtYzNiMy00YzQ1LWE1NDMtMmFjMjA3YTU2N2U1XkEyXkFqcGc@._V1_FMjpg_UX1000_.jpg"},
+    {"title": "The Miracle Maker", "image_url": "https://m.media-amazon.com/images/M/MV5BMjExMDY0NDc3MF5BMl5BanBnXkFtZTcwMjI3NjI2NA@@._V1_.jpg"}
+  ]
+}

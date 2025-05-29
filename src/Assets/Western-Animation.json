@@ -1,0 +1,31 @@
+{
+  "western_animation": [
+    {"title": "Arcane", "image_url": "https://res.cloudinary.com/di4ckwvxe/image/upload/v1748470112/arcane-season-2-poster-1717410264983_v2a9gs.jpg"},
+    {"title": "BoJack Horseman", "image_url": "https://m.media-amazon.com/images/M/MV5BZmMwMDlkNTEtMmQzZS00ODQ0LWJlZmItOTgwYWMwZGM4MzFiXkEyXkFqcGc@._V1_.jpg"},
+    {"title": "Castlevania", "image_url": "https://m.media-amazon.com/images/M/MV5BODJhZDcxMWItNmI3MC00NGZhLWI2YmMtYjc2ZDFkYjRiYTQ0XkEyXkFqcGc@._V1_.jpg"},
+    {"title": "Love, Death & Robots", "image_url": "https://es.web.img2.acsta.net/pictures/19/02/15/09/10/3717603.jpg"},
+    {"title": "The Midnight Gospel", "image_url": "https://m.media-amazon.com/images/M/MV5BN2UyMTdlMzItYTY1MC00NWExLWI1NDQtYTcxZGJlZmIzZTk4XkEyXkFqcGc@._V1_FMjpg_UX1000_.jpg"},
+    {"title": "Hilda", "image_url": "https://m.media-amazon.com/images/M/MV5BYmI2ZGE3ODQtYzk1ZC00ZDY3LWI3YzItNjhiOGE2OTM3NjVhXkEyXkFqcGc@._V1_FMjpg_UX1000_.jpg"},
+    {"title": "Kipo and the Age of Wonderbeasts", "image_url": "https://m.media-amazon.com/images/M/MV5BN2JiNGIxMzQtZjI0ZC00YTEyLWJjZGYtMjQzMDQ0YzA5OWYyXkEyXkFqcGc@._V1_FMjpg_UX1000_.jpg"},
+    {"title": "She-Ra and the Princesses of Power", "image_url": "https://m.media-amazon.com/images/M/MV5BMjI3MTI2NzY0M15BMl5BanBnXkFtZTgwNDY3MjA1NjM@._V1_.jpg"},
+    {"title": "The Dragon Prince", "image_url": "https://m.media-amazon.com/images/M/MV5BMDg2YjI2YjYtYjY2Ny00ODg2LWIxNWQtODM3NjE1MzNkNjExXkEyXkFqcGc@._V1_.jpg"},
+    {"title": "Dead End: Paranormal Park", "image_url": "https://m.media-amazon.com/images/M/MV5BZmFlMDFkZTktOTQ0OS00NDVjLThjNTUtNjk2YzhkYWI3MzRjXkEyXkFqcGc@._V1_.jpg"},
+    {"title": "Inside Job", "image_url": "https://m.media-amazon.com/images/M/MV5BZjJkMjhhNzctNjMxOS00M2Y1LWFiMmMtZjQ5ZjllM2UxYjAzXkEyXkFqcGc@._V1_.jpg"},
+    {"title": "Disenchantment", "image_url": "https://m.media-amazon.com/images/M/MV5BYjVmODJmMDYtZjU4MS00MWIxLTk1ZmQtZGRhZTM3ZDhjMTEwXkEyXkFqcGc@._V1_.jpg"},
+    {"title": "Invincible", "image_url": "https://m.media-amazon.com/images/M/MV5BZjE4ZDU4ZjMtZjliYS00M2ZmLThkNTItN2U3MmJjOGU0NmIxXkEyXkFqcGc@._V1_.jpg"},
+    {"title": "Primal", "image_url": "https://m.media-amazon.com/images/M/MV5BOTc0NTUyYmItOTY4Yi00ZjY5LWI1NjMtNDgyODJhYWRiY2UxXkEyXkFqcGc@._V1_FMjpg_UX1000_.jpg"},
+    {"title": "Samurai Jack", "image_url": "https://m.media-amazon.com/images/M/MV5BNjU4ZmVhZGMtNTU4Yy00YmZhLTlmOGQtNGMwMTcwNTEyZjQ0XkEyXkFqcGc@._V1_.jpg"},
+    {"title": "Avatar: The Last Airbender", "image_url": "https://m.media-amazon.com/images/M/MV5BMDMwMThjYWYtY2Q2OS00OGM2LTlkODQtNDJlZTZmMjAyYmFhXkEyXkFqcGc@._V1_FMjpg_UX1000_.jpg"},
+    {"title": "The Legend of Korra", "image_url": "https://m.media-amazon.com/images/M/MV5BNzI0YmExMWYtZTY4Yy00OWVlLWFhYzEtMjEwNDBkOGQ3YjJjXkEyXkFqcGc@._V1_FMjpg_UX1000_.jpg"},
+    {"title": "Voltron: Legendary Defender", "image_url": "https://m.media-amazon.com/images/M/MV5BMjA2MzMzNTg5NV5BMl5BanBnXkFtZTgwMzAzOTc4ODE@._V1_FMjpg_UX1000_.jpg"},
+    {"title": "Trollhunters", "image_url": "https://res.cloudinary.com/di4ckwvxe/image/upload/v1748470149/81Ee3jPsubL._AC_UF894_1000_QL80__fcezlg.jpg"},
+    {"title": "3Below", "image_url": "https://m.media-amazon.com/images/M/MV5BYTdlM2Y4YjQtMDA0Yy00MjJhLWIyNGQtYjVjNmFmNzI2ZDM5XkEyXkFqcGc@._V1_FMjpg_UX1000_.jpg"},
+    {"title": "Wizards", "image_url": "https://m.media-amazon.com/images/M/MV5BNGFmOTA1ZmYtMWQ0Yi00YWJmLWJjMDgtNTNiM2I5NjMzM2FkXkEyXkFqcGc@._V1_.jpg"},
+    {"title": "The Witcher: Nightmare of the Wolf", "image_url": "https://m.media-amazon.com/images/M/MV5BODQzNDE4N2ItZDAwMC00YzA3LTkwMTEtZDgyMjE3M2ZiY2NiXkEyXkFqcGc@._V1_.jpg"},
+    {"title": "Blood of Zeus", "image_url": "https://m.media-amazon.com/images/M/MV5BMjM0ZDcwMTQtZGQxNS00MjBiLTk5ZGUtZGNhOGU1YzdmMWYyXkEyXkFqcGc@._V1_.jpg"},
+    {"title": "Trese", "image_url": "https://m.media-amazon.com/images/M/MV5BODU2ZjEwMjUtMTZiOS00NmFiLTkwOTMtOWUxMjAxZTlmMGFmXkEyXkFqcGc@._V1_FMjpg_UX1000_.jpg"},
+    {"title": "Masters of the Universe: Revelation", "image_url": "https://m.media-amazon.com/images/M/MV5BOTcwZDZmMmQtNTJiNi00NGZlLTljOGItZjFkMzgzZGI3ZDY3XkEyXkFqcGc@._V1_FMjpg_UX1000_.jpg"},
+    {"title": "He-Man and the Masters of the Universe (2021)", "image_url": "https://m.media-amazon.com/images/M/MV5BZWQ3MGMzOTQtOGE3Ny00ODQ4LTgyZjUtODJiYzAyNDgwMThkXkEyXkFqcGc@._V1_FMjpg_UX1000_.jpg"},
+    {"title": "Green Eggs and Ham", "image_url": "https://images.cdn1.buscalibre.com/fit-in/360x360/38/f6/38f6fc40a649dc7df752dfe4706372dc.jpg"}
+  ]
+}

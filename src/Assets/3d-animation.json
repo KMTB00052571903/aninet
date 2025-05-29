@@ -1,0 +1,91 @@
+{
+  "3d_animation": [
+    {
+      "title": "Arcane",
+      "image_url": "https://res.cloudinary.com/di4ckwvxe/image/upload/v1748470112/arcane-season-2-poster-1717410264983_v2a9gs.jpg"
+    },
+    {
+      "title": "Troll Hunters",
+      "image_url": "https://res.cloudinary.com/di4ckwvxe/image/upload/v1748470149/81Ee3jPsubL._AC_UF894_1000_QL80__fcezlg.jpg"
+    },
+    {
+      "title": "Mitchells and the Machine",
+      "image_url": "https://res.cloudinary.com/di4ckwvxe/image/upload/v1748470227/MV5BNzAyOWNiMjAtNWUzMi00ZDk1LWE5NzYtNDUzMWE1Y2M0NDM2XkEyXkFqcGc_._V1__pazz3t.jpg"
+    },
+    {
+      "title": "LadyBug",
+      "image_url": "https://res.cloudinary.com/di4ckwvxe/image/upload/v1748470378/e9648909-5e0c-4373-94a9-063721c47dc6.a367f41dd1a94efb6335b2af7bbf8395_wt5f6s.webp"
+    },
+    {
+      "title": "Sonic Prime",
+      "image_url": "https://res.cloudinary.com/di4ckwvxe/image/upload/v1748470416/new-sonic-prime-poster-shows-up-on-chinese-video-sharing-v0-887EXfrywn1KIEE24cwGd2H_PWmwW0HMqg8sBQWXXhs_fe56jy.webp"
+    },
+    {
+      "title": "Spider Man Miles Morales",
+      "image_url": "https://res.cloudinary.com/di4ckwvxe/image/upload/v1748470461/81yppCx0AAL._AC_SL1482__hsaiz9.jpg"
+    },
+    {
+      "title": "Exceptional",
+      "image_url": "https://res.cloudinary.com/di4ckwvxe/image/upload/v1748470568/Exception_TV_Miniseries-217827016-large_upscayl_3x_ultramix_balanced_y2bcnz.png"
+    },
+    {
+      "title": "Next Gen",
+      "image_url": "https://res.cloudinary.com/di4ckwvxe/image/upload/v1748470589/MV5BMTU0MjAwMDkxNV5BMl5BanBnXkFtZTgwMTA4ODIxNjM_._V1__ejhzqh.jpg"
+    },
+    {
+      "title": "Blue Samurai",
+      "image_url": "https://res.cloudinary.com/di4ckwvxe/image/upload/v1748470624/71J5qtQZngL_qsahcq.jpg"
+    },
+    {
+      "title": "Puss In Boots",
+      "image_url": "https://res.cloudinary.com/di4ckwvxe/image/upload/v1748470717/61f0y511coL_jez4rk.jpg"
+    },
+    {
+      "title": "Transformers One",
+      "image_url": "https://res.cloudinary.com/di4ckwvxe/image/upload/v1748470768/6b9730bb2eda13c53e250aa3d4a1c743_nn5qe7.jpg"
+    },
+    {
+      "title": "Tadeo Jones",
+      "image_url": "https://res.cloudinary.com/di4ckwvxe/image/upload/v1748470938/20199350_stjz6j.webp"
+    },
+    {
+      "title": "The Little Prince",
+      "image_url": "https://res.cloudinary.com/di4ckwvxe/image/upload/v1748470983/51G9qw5SCnL._AC_UF894_1000_QL80__y0pyov.jpg"
+    },
+    {
+      "title": "Futbolín",
+      "image_url": "https://res.cloudinary.com/di4ckwvxe/image/upload/v1748471017/metegol-867708817-large_wfjed6.jpg"
+    },
+    {
+      "title": "The Croods",
+      "image_url": "https://res.cloudinary.com/di4ckwvxe/image/upload/v1748471139/71nmuZLbRqL._AC_UF894_1000_QL80__nln76q.jpg"
+    },
+    {
+      "title": "Rango",
+      "image_url": "https://res.cloudinary.com/di4ckwvxe/image/upload/v1748471200/51Cg6lDu9QL._AC_UF894_1000_QL80__jpowjh.jpg"
+    },
+    {
+      "title": "Monsters Vs Aliens",
+      "image_url": "https://res.cloudinary.com/di4ckwvxe/image/upload/v1748471224/MV5BMTY0OTQ3MzE3MV5BMl5BanBnXkFtZTcwMDQyMzMzMg_._V1_FMjpg_UX1000__hrtidj.jpg"
+    },
+    {
+      "title": "Mars Needs Moms",
+      "image_url": "https://res.cloudinary.com/di4ckwvxe/image/upload/v1748471263/MV5BOTA0MTQ2Mzc3N15BMl5BanBnXkFtZTcwNzA4ODAwNA_._V1_FMjpg_UX1000__ezeq6t.jpg"
+    },
+    {
+      "title": "Surfs Up",
+      "image_url": "https://res.cloudinary.com/di4ckwvxe/image/upload/v1748471315/MV5BMjE4NDE3NzcwM15BMl5BanBnXkFtZTcwMTI0ODYzMw_._V1__hdo0rr.jpg"
+    },
+    {
+      "title": "Bolt",
+      "image_url": "https://res.cloudinary.com/di4ckwvxe/image/upload/v1748471379/61ewuylHeoL._AC_UF894_1000_QL80__hmcaxm.jpg"
+    },
+    {
+      "title": "Turbo",
+      "image_url": "https://res.cloudinary.com/di4ckwvxe/image/upload/v1748471390/MV5BMTA4NTgwMjM5MzheQTJeQWpwZ15BbWU3MDg2ODA1ODk_._V1__uyayb8.jpg"
+    },
+    {"title": "3Below", "image_url": "https://m.media-amazon.com/images/M/MV5BYTdlM2Y4YjQtMDA0Yy00MjJhLWIyNGQtYjVjNmFmNzI2ZDM5XkEyXkFqcGc@._V1_FMjpg_UX1000_.jpg"},
+    {"title": "Wizards", "image_url": "https://m.media-amazon.com/images/M/MV5BNGFmOTA1ZmYtMWQ0Yi00YWJmLWJjMDgtNTNiM2I5NjMzM2FkXkEyXkFqcGc@._V1_.jpg"}
+    
+]
+}
