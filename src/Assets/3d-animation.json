@@ -83,6 +83,9 @@
     {
       "title": "Turbo",
       "image_url": "https://res.cloudinary.com/di4ckwvxe/image/upload/v1748471390/MV5BMTA4NTgwMjM5MzheQTJeQWpwZ15BbWU3MDg2ODA1ODk_._V1__uyayb8.jpg"
-    }
-  ]
+    },
+    {"title": "3Below", "image_url": "https://m.media-amazon.com/images/M/MV5BYTdlM2Y4YjQtMDA0Yy00MjJhLWIyNGQtYjVjNmFmNzI2ZDM5XkEyXkFqcGc@._V1_FMjpg_UX1000_.jpg"},
+    {"title": "Wizards", "image_url": "https://m.media-amazon.com/images/M/MV5BNGFmOTA1ZmYtMWQ0Yi00YWJmLWJjMDgtNTNiM2I5NjMzM2FkXkEyXkFqcGc@._V1_.jpg"}
+    
+]
 }

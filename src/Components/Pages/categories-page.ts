@@ -33,7 +33,7 @@ class CategoriesPage extends HTMLElement {
                         contentData = disneyData.disney.map((item: any) => ({ // Cambia .data por .disney
                         image: item.image_url,  // Usa image_url que está en tu JSON
                         title: item.title,
-                        id: item.title // Usamos el título como ID temporal
+                        id: item.title //  ID temporal
                          }));
                         } catch (error) {
                             console.error('Error loading Disney JSON:', error);
@@ -48,7 +48,7 @@ class CategoriesPage extends HTMLElement {
                         contentData = donghuaData.donghua.map((item: any) => ({ // Usar donghuaData.donghua
                         image: item.image_url, // Cambiar a image_url para coincidir 
                         title: item.title,
-                        id: item.title // Usar el título como ID temporal
+                        id: item.title // ID temporal
                         }));
                          } catch (error) {
                                 console.error('Error loading Donghua JSON:', error);
@@ -63,7 +63,7 @@ class CategoriesPage extends HTMLElement {
                         contentData = animation3dData["3d_animation"].map((item: any) => ({
                         image: item.image_url,  // Usa image_url que está en tu JSON
                         title: item.title,
-                        id: item.title // Usamos el título como ID temporal
+                        id: item.title //  ID temporal
                         }));
                         } catch (error) {
                         console.error('Error loading 3D Animation JSON:', error);
@@ -71,7 +71,7 @@ class CategoriesPage extends HTMLElement {
                         }
                         break;
 
-                        case 'stop-motion': // Asegúrate que coincida con el data-type de tu categoría
+                    case 'stop-motion': 
                             try {
                             const stopMotionResponse = await fetch('../src/Assets/Stop-Motion.json');
                             const stopMotionData = await stopMotionResponse.json();
@@ -86,9 +86,9 @@ class CategoriesPage extends HTMLElement {
                         }
                         break;
 
-                        case 'western': // Asegúrate que coincida con el data-type de tu categoría
+                    case 'western': 
                             try {
-                            const westernResponse = await fetch('./Assets/Western-Animation.json');
+                            const westernResponse = await fetch('../src/Assets/Western-Animation.json');
                             const westernData = await westernResponse.json();
                             contentData = westernData.western_animation.map((item: any) => ({
                             image: item.image_url || 'https://via.placeholder.com/300x450?text=No+Image', // Fallback si está vacío
