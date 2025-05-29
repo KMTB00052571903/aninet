@@ -55,6 +55,51 @@ class CategoriesPage extends HTMLElement {
                                 contentData = [];
                         }
                         break;
+
+                case '3d': // Asegúrate que este '3d' coincida con el data-type de tu categoría
+                        try {
+                        const animation3dResponse = await fetch('../src/Assets/3d-animation.json');
+                        const animation3dData = await animation3dResponse.json();
+                        contentData = animation3dData["3d_animation"].map((item: any) => ({
+                        image: item.image_url,  // Usa image_url que está en tu JSON
+                        title: item.title,
+                        id: item.title // Usamos el título como ID temporal
+                        }));
+                        } catch (error) {
+                        console.error('Error loading 3D Animation JSON:', error);
+                        contentData = [];
+                        }
+                        break;
+
+                        case 'stop-motion': // Asegúrate que coincida con el data-type de tu categoría
+                            try {
+                            const stopMotionResponse = await fetch('../src/Assets/Stop-Motion.json');
+                            const stopMotionData = await stopMotionResponse.json();
+                            contentData = stopMotionData.stop_motion.map((item: any) => ({
+                            image: item.image_url || 'https://via.placeholder.com/300x450?text=No+Image', // Fallback si está vacío
+                            title: item.title,
+                            id: item.title // ID temporal
+                        }));
+                        } catch (error) {
+                        console.error('Error loading Stop-Motion JSON:', error);
+                        contentData = [];
+                        }
+                        break;
+
+                        case 'western': // Asegúrate que coincida con el data-type de tu categoría
+                            try {
+                            const westernResponse = await fetch('./Assets/Western-Animation.json');
+                            const westernData = await westernResponse.json();
+                            contentData = westernData.western_animation.map((item: any) => ({
+                            image: item.image_url || 'https://via.placeholder.com/300x450?text=No+Image', // Fallback si está vacío
+                            title: item.title,
+                            id: item.title // ID temporal
+                            }));
+                        } catch (error) {
+                        console.error('Error loading Western Animation JSON:', error);
+                        contentData = [];
+                        }
+                        break;
                 
                 
                 default:
@@ -239,8 +284,8 @@ class CategoriesPage extends HTMLElement {
                 }
 
                 .category-card:hover {
-                    transform: translateY(-5px);
-                    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.3);
+                    transform: translateY(-10px);
+                    box-shadow: 0 10px 20px rgba(158, 42, 42, 0.3);
                 }
 
                 .category-image {
@@ -293,7 +338,7 @@ class CategoriesPage extends HTMLElement {
                     <div class="category-card" data-id="2" data-type="american-animation">
                         <img class="category-image" src="https://res.cloudinary.com/di4ckwvxe/image/upload/v1748380594/American_fx6pd6.jpg" alt="American Animation">
                         <div class="category-overlay">
-                            <h3 class="category-name">American Animation</h3>
+                            <h3 class="category-name">Disney Animation</h3>
                         </div>
                     </div>
                     <div class="category-card" data-id="3" data-type="donghua">
