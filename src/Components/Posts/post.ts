@@ -1,15 +1,19 @@
+import { store } from '../../Flux/Store';
+
 class PostCreator extends HTMLElement {
-  userIcon:any
+  userIcon: string;
+  userName: string;
   
-    constructor() {
-      super();
-      this.attachShadow({ mode: 'open' });
-      this.userIcon = "https://i.pinimg.com/736x/67/ac/6c/67ac6c6c4a7750e34e17a0586c7e596c.jpg"; 
-    }
-  
-    connectedCallback() {
-      this.render();
-    }
+  constructor() {
+    super();
+    this.attachShadow({ mode: 'open' });
+    this.userIcon = "https://i.pinimg.com/736x/67/ac/6c/67ac6c6c4a7750e34e17a0586c7e596c.jpg";
+    this.userName = "Current User"; // Sistema de autenticación
+  }
+
+  connectedCallback() {
+    this.render();
+  }
   
     render() {
       this.shadowRoot!.innerHTML = `
@@ -122,25 +126,28 @@ class PostCreator extends HTMLElement {
       `;
   
       this.setupEventListeners();
-    }
-  
-    setupEventListeners() {
-      const textarea = this.shadowRoot!.querySelector('.post-input') as HTMLInputElement;
-      const button = this.shadowRoot!.querySelector('.submit-btn');
-      
-      button!.addEventListener('click', () => {
-        const content = textarea!.value.trim();
-        if (content) {
-          this.dispatchEvent(new CustomEvent('post-submitted', {
-            detail: { content },
-            bubbles: true,
-            composed: true
-          }));
-          textarea!.value = '';
-        }
-      });
-    }
   }
-  
-  customElements.define('post-creator', PostCreator);
-  export default PostCreator;
+
+  setupEventListeners() {
+    const textarea = this.shadowRoot!.querySelector('.post-input') as HTMLTextAreaElement;
+    const button = this.shadowRoot!.querySelector('.submit-btn');
+    
+    button!.addEventListener('click', () => {
+      const content = textarea.value.trim();
+      if (content) {
+        store.addPost({
+          name: this.userName,
+          icon: this.userIcon,
+          title: content, // O podrías separar título y contenido
+          tag: "general", // O permitir al usuario seleccionar un tag
+          content: content,
+        });
+        textarea.value = '';
+      }
+    });
+  }
+}
+
+
+customElements.define('post-creator', PostCreator);
+export default PostCreator
