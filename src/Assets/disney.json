@@ -71,6 +71,34 @@
     {
       "title": "Ratatouille",
       "image_url": "https://m.media-amazon.com/images/M/MV5BMTMzODU0NTkxMF5BMl5BanBnXkFtZTcwMjQ4MzMzMw@@._V1_FMjpg_UX1000_.jpg"
-    }
+    },
+        {
+      "title": "Peter Pan",
+      "image_url": "https://lumiere-a.akamaihd.net/v1/images/p_peterpan_19755_96e77c5b.jpeg"
+    },
+        {
+      "title": "Soul",
+      "image_url": "https://lumiere-a.akamaihd.net/v1/images/image_220cf15f.jpeg"
+    },
+        {
+      "title": "Mulan",
+      "image_url": "https://lumiere-a.akamaihd.net/v1/images/mulan_1998_f1bf1298.png?region=0%2C4%2C956%2C956"
+    },
+            {
+      "title": "Aladdin",
+      "image_url": "https://m.media-amazon.com/images/M/MV5BMmQwYWZjZGItYzc0OC00ZDllLTg3NjItOWIyOWYwMDljMjAyXkEyXkFqcGc@._V1_FMjpg_UX1000_.jpg"
+    },
+            {
+      "title": "Encanto",
+      "image_url": "https://m.media-amazon.com/images/M/MV5BOTY1YmU1ZTItMzNjZC00ZGU0LTk0MTEtZDgzN2QwOWVlNjZhXkEyXkFqcGc@._V1_.jpg"
+    },
+            {
+      "title": "The Lion King",
+      "image_url": "https://m.media-amazon.com/images/M/MV5BZGRiZDZhZjItM2M3ZC00Y2IyLTk3Y2MtMWY5YjliNDFkZTJlXkEyXkFqcGc@._V1_.jpg"
+    },
+            {
+      "title": "Raya",
+      "image_url": "https://m.media-amazon.com/images/M/MV5BN2QzZTQ3MzktN2JiYS00MDEzLTgxMWQtZWFmMDI3NWFkZTY0XkEyXkFqcGc@._V1_.jpg"
+    } 
   ]
 }

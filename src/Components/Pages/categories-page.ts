@@ -17,7 +17,7 @@ class CategoriesPage extends HTMLElement {
 
             switch (categoryType) {
                 case 'anime':
-                    const animeResponse = await fetch(`https://api.jikan.moe/v4/anime?genres=${categoryId}`);
+                    const animeResponse = await fetch(`https://api.jikan.moe/v4/seasons/upcoming?genres=${categoryId}`);
                     const animeData = await animeResponse.json();
                     contentData = animeData.data.map((item: any) => ({
                         image: item.images?.jpg?.image_url,
@@ -30,8 +30,8 @@ class CategoriesPage extends HTMLElement {
                          try {
                         const disneyResponse = await fetch('../src/Assets/disney.json'); // Usa ruta relativa
                         const disneyData = await disneyResponse.json();
-                        contentData = disneyData.disney.map((item: any) => ({ // Cambia .data por .disney
-                        image: item.image_url,  // Usa image_url que está en tu JSON
+                        contentData = disneyData.disney.map((item: any) => ({ // Usar disneyData .disney
+                        image: item.image_url,  // Usa image_url que está en el JSON
                         title: item.title,
                         id: item.title //  ID temporal
                          }));
@@ -56,12 +56,12 @@ class CategoriesPage extends HTMLElement {
                         }
                         break;
 
-                case '3d': // Asegúrate que este '3d' coincida con el data-type de tu categoría
+                    case '3d': // '3d' coincida con el data-type de la categoría
                         try {
                         const animation3dResponse = await fetch('../src/Assets/3d-animation.json');
                         const animation3dData = await animation3dResponse.json();
                         contentData = animation3dData["3d_animation"].map((item: any) => ({
-                        image: item.image_url,  // Usa image_url que está en tu JSON
+                        image: item.image_url,  // Usa image_url que está en JSON
                         title: item.title,
                         id: item.title //  ID temporal
                         }));

@@ -95,7 +95,6 @@ class ExplorePage extends HTMLElement {
         }
     }
 
-    // Mantenemos el resto de métodos exactamente igual que en tu versión original
     render() {
         this.shadowRoot!.innerHTML = `
             <style>
