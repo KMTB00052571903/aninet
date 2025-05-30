@@ -4,9 +4,13 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "webpack serve --mode=development"
-  },
+  "test": "echo \"Error: no test specified\" && exit 1",
+  "start": "webpack serve --mode=development",
+  "build": "webpack",
+  "watch": "webpack --watch"
+
+}
+  ,
   "repository": {
     "type": "git",
     "url": "git+https://github.com/KMTB00052571903/aninet.git"
@@ -20,6 +24,7 @@
   "homepage": "https://github.com/KMTB00052571903/aninet#readme",
   "dependencies": {
     "bootstrap-icons": "^1.11.3",
+    "firebase": "^11.8.1",
     "modules": "^0.4.0"
   },
   "devDependencies": {
