@@ -10,7 +10,6 @@ class HeaderComponent extends HTMLElement {
     }
 
     setupEventListeners() {
-        // Configurar eventos para cada enlace de navegación
         this.shadowRoot!.querySelector('[data-route="home"]')?.addEventListener('click', () => {
             window.location.reload();
         });
@@ -23,8 +22,9 @@ class HeaderComponent extends HTMLElement {
             this.navigateTo('<categories-page></categories-page>');
         });
 
-        this.shadowRoot!.querySelector('[data-route="profile"]')?.addEventListener('click', () => {
-            this.navigateTo('<profile-page></profile-page>');
+        // Cambiado de "profile" a "sign in"
+        this.shadowRoot!.querySelector('[data-route="signin"]')?.addEventListener('click', () => {
+            this.navigateTo('<login-form></login-form>');
         });
     }
 
@@ -34,6 +34,7 @@ class HeaderComponent extends HTMLElement {
             mainContent.innerHTML = content;
         }
     }
+  
   
     render() {
       this.shadowRoot!.innerHTML = `
@@ -149,7 +150,7 @@ class HeaderComponent extends HTMLElement {
           <p class="nav-link" data-route="home">Home</p>
           <p class="nav-link" data-route="watch">Watch</p>
           <p class="nav-link" data-route="categories">Categories</p>
-          <p class="nav-link" data-route="profile">Profile</p>
+          <p class="nav-link" data-route="signin">Sign In</p>
         </navbar>
       </header>
     `;
