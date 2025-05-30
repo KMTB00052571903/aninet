@@ -10,7 +10,7 @@ class HeaderComponent extends HTMLElement {
     }
 
     setupEventListeners() {
-        // Configurar eventos para cada enlace de navegación
+        // Eventos para cada enlace de navegación
         this.shadowRoot!.querySelector('[data-route="home"]')?.addEventListener('click', () => {
             window.location.reload();
         });
@@ -26,6 +26,22 @@ class HeaderComponent extends HTMLElement {
         this.shadowRoot!.querySelector('[data-route="profile"]')?.addEventListener('click', () => {
             this.navigateTo('<profile-page></profile-page>');
         });
+
+        // Event listener para el botón de Sign In - ¡ESTE ES EL IMPORTANTE!
+        this.shadowRoot!.querySelector('#login-btn')?.addEventListener('click', (e) => {
+            console.log('Botón Sign In clickeado'); // Para debug
+            const loginForm = document.createElement('login-form');
+            document.body.appendChild(loginForm);
+            
+            loginForm.addEventListener('login-success', () => {
+                this.render(); // Actualizar el header después del login
+            });
+
+            // Cerrar el popup al hacer clic en el botón de cerrar
+            loginForm.shadowRoot?.querySelector('#close-btn')?.addEventListener('click', () => {
+                loginForm.remove();
+            });
+        });
     }
 
     navigateTo(content: string) {
@@ -34,9 +50,9 @@ class HeaderComponent extends HTMLElement {
             mainContent.innerHTML = content;
         }
     }
-  
+
     render() {
-      this.shadowRoot!.innerHTML = `
+        this.shadowRoot!.innerHTML = `
       <style>
         #header {
             width: 100%;
@@ -91,8 +107,34 @@ class HeaderComponent extends HTMLElement {
           height: 2px;
           background-color: #FF0808;
         }
-                  /* Responsive styles */
-        @media (max-width: 1200px) {
+
+        #login-btn {
+            background: linear-gradient(45deg, #ff4500, #ff6a00);
+          color: white;
+          border: none;
+          padding: 10px 20px;
+          border-radius: 25px;
+          font-weight: bold;
+          cursor: pointer;
+          transition: all 0.3s ease;
+          box-shadow: 0 4px 8px rgba(255, 69, 0, 0.3);
+          text-transform: uppercase;
+          letter-spacing: 1px;
+          font-size: 14px;
+          }
+
+          #login-btn:hover {
+          transform: translateY(-2px);
+          box-shadow: 0 6px 12px rgba(255, 69, 0, 0.4);
+          background: linear-gradient(45deg, #ff6a00, #ff4500);
+          }
+
+          #login-btn:active {
+          transform: translateY(0);
+          box-shadow: 0 2px 4px rgba(255, 69, 0, 0.3);
+          }
+
+          @media (max-width: 1200px) {
           #header {
             padding-left: 50px;
             padding-right: 50px;
@@ -138,22 +180,24 @@ class HeaderComponent extends HTMLElement {
             letter-spacing: 0.5px;
           }
         }
+          
       </style>
       </style>
 
-      <header id="header">
-        <logo id="logo">
-          <img src="https://i.ibb.co/PG67j7TQ/logo-medium-white.png" alt="Aninet">
-        </logo>
-        <navbar id="navbar">
-          <p class="nav-link" data-route="home">Home</p>
-          <p class="nav-link" data-route="watch">Watch</p>
-          <p class="nav-link" data-route="categories">Categories</p>
-          <p class="nav-link" data-route="profile">Profile</p>
-        </navbar>
-      </header>
-    `;
-  }
+        <header id="header">
+            <logo id="logo">
+                <img src="https://i.ibb.co/PG67j7TQ/logo-medium-white.png" alt="Aninet">
+            </logo>
+            <navbar id="navbar">
+                <p class="nav-link" data-route="home">Home</p>
+                <p class="nav-link" data-route="watch">Watch</p>
+                <p class="nav-link" data-route="categories">Categories</p>
+                <p class="nav-link" data-route="profile">Profile</p>
+                <button id="login-btn">Sign In</button>
+            </navbar>
+        </header>
+        `;
+    }
 }
 
 customElements.define('header-component', HeaderComponent);
