@@ -1,68 +1,108 @@
 export default class LoginForm extends HTMLElement {
-    connectedCallback() {
-      this.render();
-      this.querySelector("form")!.addEventListener("submit", this.handleSubmit);
-      this.querySelector("#close-btn")?.addEventListener("click", () => {
-        this.remove(); // o this.style.display = 'none';
-      });
-    }
-  
-    handleSubmit(event:any) {
-      event.preventDefault();
-      const form = event.target;
-      const email = form.email.value.trim();
-      const password = form.password.value;
-  
-      if (!email || !password) {
-        alert("Todos los campos son obligatorios");
-        return;
-      }
-  
-      // Simulación de login (aquí podrías conectar con tu estado global mock)
-      console.log("Inicio de sesión:", { email });
-      alert("¡Bienvenido de nuevo!");
-      form.reset();
-    }
-  
-    render() {
-      this.innerHTML = `
-        <div class="min-h-screen flex items-center justify-center bg-gradient-to-b from-black to-gray-900 px-4 py-12">
-          <div class="bg-zinc-900 text-white p-6 rounded-2xl w-full max-w-md shadow-lg relative">
-            <button id="close-btn" class="absolute top-4 right-4 text-red-500 text-2xl font-bold hover:scale-125 transition">&times;</button>
-            
-            <div class="flex justify-center mb-6">
-              <div class="bg-red-600 rounded-full w-16 h-16 flex items-center justify-center text-white text-2xl">
-                🔒
-              </div>
-            </div>
-            
-            <h2 class="text-center text-2xl font-bold mb-4">Iniciar sesión</h2>
-            
-            <form class="flex flex-col gap-4">
-              <input
-                type="email"
-                name="email"
-                placeholder="Correo electrónico"
-                required
-                class="bg-black border border-gray-500 px-4 py-2 rounded-md focus:outline-none focus:ring-2 focus:ring-red-500"
-              />
-              <input
-                type="password"
-                name="password"
-                placeholder="Contraseña"
-                required
-                class="bg-black border border-gray-500 px-4 py-2 rounded-md focus:outline-none focus:ring-2 focus:ring-red-500"
-              />
-              <button
-                type="submit"
-                class="bg-red-600 hover:bg-red-700 py-2 rounded-md font-semibold transition"
-              >
-                Iniciar sesión
-              </button>
-            </form>
-          </div>
-        </div>
-      `;
-    }
+  constructor() {
+    super();
+    console.log("✅ LoginForm component constructed");
   }
-  
+
+  connectedCallback() {
+    this.render();
+    console.log("✅ LoginForm connected to DOM");
+
+    this.shadowRoot!.querySelector("form")!.addEventListener("submit", this.handleSubmit);
+    this.shadowRoot!.querySelector("#close-btn")?.addEventListener("click", () => {
+      this.remove();
+    });
+  }
+
+  handleSubmit(event: Event) {
+    event.preventDefault();
+    const form = event.target as HTMLFormElement;
+    const email = (form.email as HTMLInputElement).value.trim();
+    const password = (form.password as HTMLInputElement).value;
+
+    if (!email || !password) {
+      alert("Todos los campos son obligatorios");
+      return;
+    }
+
+    console.log("Inicio de sesión:", { email });
+    alert("¡Bienvenido de nuevo!");
+    form.reset();
+  }
+
+  render() {
+    this.attachShadow({ mode: "open" });
+    this.shadowRoot!.innerHTML = `
+      <style>
+        .overlay {
+          position: fixed;
+          top: 0;
+          left: 0;
+          width: 100vw;
+          height: 100vh;
+          background-color: rgba(0, 0, 0, 0.8);
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          z-index: 9999;
+        }
+
+        .popup {
+          background-color: #1f1f1f;
+          color: white;
+          padding: 2rem;
+          border-radius: 1rem;
+          max-width: 400px;
+          width: 100%;
+          position: relative;
+          font-family: sans-serif;
+        }
+
+        #close-btn {
+          position: absolute;
+          top: 0.5rem;
+          right: 1rem;
+          font-size: 1.5rem;
+          color: red;
+          background: none;
+          border: none;
+          cursor: pointer;
+        }
+
+        input, button {
+          width: 100%;
+          margin-top: 0.75rem;
+          padding: 0.5rem;
+          border-radius: 0.5rem;
+          border: 1px solid #555;
+          background: #000;
+          color: white;
+        }
+
+        button {
+          background-color: red;
+          border: none;
+          font-weight: bold;
+        }
+
+        button:hover {
+          background-color: #c00;
+        }
+      </style>
+
+      <div class="overlay">
+        <div class="popup">
+          <button id="close-btn">&times;</button>
+          <h2>Login</h2>
+          <form>
+            <input type="email" name="email" placeholder="Correo electrónico" required />
+            <input type="password" name="password" placeholder="Contraseña" required />
+            <button type="submit">Login</button>
+          </form>
+        </div>
+      </div>
+    `;
+  }
+}
+
+customElements.define("login-form", LoginForm);
