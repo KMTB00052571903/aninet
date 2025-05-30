@@ -5,7 +5,9 @@
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "webpack serve --mode=development"
+    "start": "webpack serve --mode=development",
+    "build": "webpack",
+    "watch": "webpack --watch"
   },
   "repository": {
     "type": "git",
@@ -20,9 +22,16 @@
   "homepage": "https://github.com/KMTB00052571903/aninet#readme",
   "dependencies": {
     "bootstrap-icons": "^1.11.3",
+    "firebase": "^11.8.1",
     "modules": "^0.4.0"
   },
   "devDependencies": {
+    "autoprefixer": "^10.4.21",
+    "css-loader": "^7.1.2",
+    "postcss": "^8.5.4",
+    "postcss-loader": "^8.1.1",
+    "style-loader": "^4.0.0",
+    "tailwindcss": "^4.1.8",
     "ts-loader": "^9.5.2",
     "typescript": "^5.8.3",
     "webpack": "^5.99.5",
