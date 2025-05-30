@@ -38,7 +38,99 @@ class ProfilePage extends HTMLElement {
           background-color: #cc0000;
         }
 
-        /* Solo estilo esencial incluido, puedes mantener el resto */
+        .profile-header {
+          position: relative;
+          margin-bottom: 100px;
+        }
+
+        .banner {
+          width: 100%;
+          height: 300px;
+          object-fit: cover;
+          background-color: #1a1a1a;
+        }
+
+        .profile-pic-container {
+          position: absolute;
+          bottom: -75px;
+          left: 50%;
+          transform: translateX(-50%);
+          z-index: 2;
+        }
+
+        .profile-pic {
+          width: 150px;
+          height: 150px;
+          border-radius: 50%;
+          object-fit: cover;
+          border: 5px solid #FF0808;
+          box-shadow: 0 4px 20px rgba(0, 0, 0, 0.5);
+          transition: all 0.3s ease;
+        }
+
+        .profile-pic:hover {
+          transform: scale(1.05);
+          box-shadow: 0 6px 25px rgba(255, 8, 8, 0.4);
+        }
+
+        .profile-content {
+          max-width: 1200px;
+          margin: 0 auto;
+          padding: 0 20px;
+          display: grid;
+          grid-template-columns: 1fr 3fr;
+          gap: 30px;
+        }
+
+        @media (max-width: 768px) {
+          .profile-content {
+            grid-template-columns: 1fr;
+          }
+        }
+
+        .user-info {
+          background: #1a1a1a;
+          border-radius: 10px;
+          padding: 20px;
+          position: sticky;
+          top: 20px;
+        }
+
+        .username {
+          font-size: 1.8rem;
+          margin: 20px 0 5px;
+          color: #FF0808;
+          text-align: center;
+        }
+
+        .user-title {
+          color: #FFA500;
+          font-size: 1rem;
+          text-align: center;
+          margin-bottom: 20px;
+        }
+
+        .user-bio {
+          font-size: 0.9rem;
+          line-height: 1.5;
+          color: #ccc;
+          margin-bottom: 20px;
+        }
+
+        @media (max-width: 768px) {
+          .profile-pic {
+            width: 120px;
+            height: 120px;
+          }
+
+          .profile-pic-container {
+            bottom: -60px;
+          }
+
+          .banner {
+            height: 200px;
+          }
+        }
       </style>
 
       <div class="profile-header">
@@ -67,7 +159,7 @@ class ProfilePage extends HTMLElement {
     if (logoutBtn) {
       logoutBtn.addEventListener("click", () => {
         logout().then(() => {
-          location.reload(); // O puedes redirigir a inicio si quieres
+          location.reload();
         });
       });
     }
