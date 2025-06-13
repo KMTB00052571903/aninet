@@ -22,7 +22,7 @@
   "homepage": "https://github.com/KMTB00052571903/aninet#readme",
   "dependencies": {
     "bootstrap-icons": "^1.11.3",
-    "firebase": "^11.8.1",
+    "firebase": "^11.9.1",
     "modules": "^0.4.0"
   },
   "devDependencies": {
