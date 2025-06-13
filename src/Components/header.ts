@@ -1,4 +1,4 @@
-import { getCurrentUser } from "../fireBase/auth";
+import { getCurrentUser } from "../firebase/auth";
 
 class HeaderComponent extends HTMLElement {
   constructor() {
