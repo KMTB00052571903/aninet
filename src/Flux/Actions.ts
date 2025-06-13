@@ -44,3 +44,4 @@ export const fetchDataError = (error: any): Action => ({
     type: ActionTypes.FETCH_DATA_ERROR,
     payload: error,
 });
+
