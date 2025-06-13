@@ -1,6 +1,6 @@
 // src/Flux/Store.ts
-import Dispatcher from '../Flux/Dispatcher';
-import ActionTypes from '../Flux/Actions';
+import Dispatcher from './Dispatcher';
+import {ActionTypes} from './Actions';
 
 interface State {
   user: firebase.User | null;
