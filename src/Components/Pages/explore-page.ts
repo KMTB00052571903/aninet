@@ -345,7 +345,6 @@ class ExplorePage extends HTMLElement {
         
         if (query) {
             try {
-                // Buscar en ambos datos
                 const [apiResults, localResults] = await Promise.all([
                     this.searchJikanAnime(query),
                     this.searchLocalContent(query)

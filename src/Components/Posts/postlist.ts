@@ -252,6 +252,13 @@ class PostList extends HTMLElement {
               justify-content: flex-end;
             }
           }
+            .comment-section {
+              width: 100%;
+              margin-top: 15px;
+              padding: 15px;
+              background: #1a1a1a;
+              border-radius: 15px;
+              }
           
           @media (max-width: 576px) {
             .image-container {
@@ -324,7 +331,7 @@ class PostList extends HTMLElement {
               </div>
             </div>
             <div class="comment-section" id="comment-section-${post.id}">
-              <input type="text" class="comment-input" placeholder="Leave your comment...">
+              <comment-box post-id="${post.id}"></comment-box>
             </div>
           </div>
         `).join('')}

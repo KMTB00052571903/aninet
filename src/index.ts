@@ -7,6 +7,8 @@ import './Components/Posts/post';
 import './Components/Pages/explore-page';
 import './Components/Pages/categories-page';
 import './Components/Pages/profile-page';
+import { store } from './Flux/Store';
+
 
 import { initAuth } from "./fireBase/auth";
 

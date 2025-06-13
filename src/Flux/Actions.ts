@@ -1,5 +1,3 @@
-
-
 export enum ActionTypes {
     SET_USER = 'SET_USER',
     LOGOUT = 'LOGOUT',
@@ -7,7 +5,6 @@ export enum ActionTypes {
     FETCH_DATA = 'FETCH_DATA',
     FETCH_DATA_SUCCESS = 'FETCH_DATA_SUCCESS',
     FETCH_DATA_ERROR = 'FETCH_DATA_ERROR',
-    // Agrega aquí otros tipos de acciones 
 }
 
 export interface Action<T = any> {
@@ -15,7 +12,6 @@ export interface Action<T = any> {
     payload?: T;
 }
 
-// Ejemplos de creadores de acciones (action creators):
 
 export const setUser = (user: any): Action => ({
     type: ActionTypes.SET_USER,
@@ -44,4 +40,21 @@ export const fetchDataError = (error: any): Action => ({
     type: ActionTypes.FETCH_DATA_ERROR,
     payload: error,
 });
+
+export enum ActionTypes {
+  ADD_COMMENT = 'ADD_COMMENT',
+  LOAD_COMMENTS = 'LOAD_COMMENTS'
+}
+
+
+export const addComment = (comment: Comment): Action => ({
+  type: ActionTypes.ADD_COMMENT,
+  payload: comment
+});
+
+export const loadComments = (comments: Comment[]): Action => ({
+  type: ActionTypes.LOAD_COMMENTS,
+  payload: comments
+});
+
 
