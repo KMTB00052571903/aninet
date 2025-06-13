@@ -1,4 +1,4 @@
-import { logout } from "../../fireBase/auth";
+import { logout } from "../../firebase/auth";
 
 class ProfilePage extends HTMLElement {
   constructor() {

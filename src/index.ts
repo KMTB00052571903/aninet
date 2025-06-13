@@ -8,7 +8,7 @@ import './Components/Pages/explore-page';
 import './Components/Pages/categories-page';
 import './Components/Pages/profile-page';
 
-import { initAuth } from "./fireBase/auth";
+import { initAuth } from "./firebase/auth";
 
 initAuth(() => {
   const header = document.querySelector('header-component');

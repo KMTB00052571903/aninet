@@ -1,34 +1,54 @@
-export type Listener<T> = (state: T) => void;
+// src/Flux/Store.ts
+import Dispatcher from '../Flux/Dispatcher';
+import ActionTypes from '../Flux/Actions';
 
-export class Store<T> {
-    private state: T;
-    private listeners: Listener<T>[] = [];
-
-    constructor(initialState: T) {
-        this.state = initialState;
-    }
-
-    getState(): T {
-        return this.state;
-    }
-
-    setState(newState: T): void {
-        this.state = newState;
-        this.emit();
-    }
-
-    subscribe(listener: Listener<T>): () => void {
-        this.listeners.push(listener);
-        // Call the listener immediately with current state
-        listener(this.state);
-        return () => {
-            this.listeners = this.listeners.filter(l => l !== listener);
-        };
-    }
-
-    private emit(): void {
-        for (const listener of this.listeners) {
-            listener(this.state);
-        }
-    }
+interface State {
+  user: firebase.User | null;
 }
+
+class Store {
+  private state: State;
+  private listeners: Array<() => void>;
+
+  constructor() {
+    this.state = {
+      user: null,
+    };
+    this.listeners = [];
+
+    Dispatcher.register(this.handleActions.bind(this));
+  }
+
+  handleActions(action: any) {
+    switch (action.type) {
+      case ActionTypes.SET_USER:
+        this.state.user = action.payload;
+        this.emitChange();
+        break;
+      case ActionTypes.LOGOUT_USER:
+        this.state.user = null;
+        this.emitChange();
+        break;
+      default:
+        break;
+    }
+  }
+
+  getState(): State {
+    return this.state;
+  }
+
+  addChangeListener(listener: () => void) {
+    this.listeners.push(listener);
+  }
+
+  removeChangeListener(listener: () => void) {
+    this.listeners = this.listeners.filter((l) => l !== listener);
+  }
+
+  emitChange() {
+    this.listeners.forEach((listener) => listener());
+  }
+}
+
+export default new Store();
